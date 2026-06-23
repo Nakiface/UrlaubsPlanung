@@ -11,6 +11,7 @@
 //  fuer die zweite Oktoberhälfte. Keine verbindlichen Angebote.
 // =============================================================
 
+// Datenstand: Türkei mit konkreten AI-Angeboten (CHECK24).
 const destinations = [
   {
     id: 'tuerkei', rank: 1, name: 'Türkei', region: 'Antalya · Türkische Riviera', flag: '🇹🇷',
@@ -25,6 +26,23 @@ const destinations = [
       'Große Familien-Resorts mit Aquapark, Kinderclub & Animation',
       'Flach abfallende Sandstrände (Lara, Belek, Side)',
       'Ausflüge: Düden-Wasserfälle, Altstadt Kaleiçi, antikes Aspendos',
+    ],
+    offersMeta: {
+      source: 'CHECK24', date: '24.–31.10.2026',
+      url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&countryId=114&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight',
+      note: 'Live-Momentaufnahme (Stand Juni 2026), 8 Tage / 7 Nächte, Flug + Unterkunft ab Berlin (BER), 2 Erw. + Kinder 8 & 5 J. Preise je Gesamtfamilie inkl. Flug; Verfügbarkeit & Preise ändern sich täglich.',
+    },
+    offers: [
+      { hotel: 'Side Crown Palace', region: 'Evrenseki · Side', stars: 5, rating: '7,5', ratingWord: 'Gut', reviews: '3.288', price: 3073 },
+      { hotel: 'Club Boran Mare Beach', region: 'Göynük · Kemer', stars: 5, rating: '8,6', ratingWord: 'Fabelhaft', reviews: '495', price: 3074 },
+      { hotel: 'Hotel Nova Park', region: 'Kumköy · Side', stars: 5, rating: '8,2', ratingWord: 'Sehr gut', reviews: '1.377', price: 3148 },
+      { hotel: 'Bodrum Holiday Resort & Spa', region: 'İçmeler · Bodrum', stars: 5, rating: '7,7', ratingWord: 'Gut', reviews: '406', price: 3204 },
+      { hotel: 'Side Breeze', region: 'Evrenseki · Side', stars: 5, rating: '8,6', ratingWord: 'Fabelhaft', reviews: '1.506', price: 3320 },
+      { hotel: 'Paloma Pasha', region: 'Özdere · Kuşadası', stars: 5, rating: '8,7', ratingWord: 'Fabelhaft', reviews: '623', price: 3404 },
+      { hotel: 'Ulusoy Kemer Holiday Club', region: 'Göynük · Kemer', stars: 5, rating: '8,6', ratingWord: 'Fabelhaft', reviews: '364', price: 3413 },
+      { hotel: 'Villa Side Residence', region: 'Kumköy · Side', stars: 5, rating: '8,7', ratingWord: 'Fabelhaft', reviews: '2.172', price: 3545 },
+      { hotel: 'Diamond Premium Hotel & Spa', region: 'Titreyengöl · Side', stars: 5, rating: '8,6', ratingWord: 'Fabelhaft', reviews: '3.100', price: 3568 },
+      { hotel: 'Club Melas Privé', region: 'Kumköy · Side', stars: 5, rating: '8,9', ratingWord: 'Fabelhaft', reviews: '1.900', price: 3765 },
     ],
   },
   {
@@ -322,6 +340,19 @@ const CHART = destinations.map((d) => ({
     .hl { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
     .hl li { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 11px 14px; font-size: 14px; color: #34495a; display: flex; gap: 10px; box-shadow: var(--shadow); }
     .hl li::before { content: "›"; color: var(--accent); font-weight: 800; }
+    /* ---- Konkrete Angebote ---- */
+    table.offers { width: 100%; border-collapse: collapse; font-size: 13.5px; background: var(--card); border-radius: 12px; overflow: hidden; box-shadow: var(--shadow); }
+    table.offers th, table.offers td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--line); vertical-align: middle; }
+    table.offers th { background: #eef3f8; font-size: 12px; text-transform: uppercase; letter-spacing: .5px; color: var(--muted); font-weight: 700; }
+    table.offers tr:last-child td { border-bottom: none; }
+    table.offers tbody tr:hover { background: #f3f8fc; }
+    table.offers .stars { color: #f4a23a; font-size: 11px; letter-spacing: -1px; white-space: nowrap; }
+    table.offers .rbadge { display: inline-block; background: var(--accent); color: #fff; font-weight: 700; font-size: 12px; border-radius: 6px; padding: 1px 6px; font-variant-numeric: tabular-nums; }
+    table.offers .rev { color: var(--muted); font-size: 12px; }
+    table.offers .oprice { font-weight: 800; color: var(--accent); font-variant-numeric: tabular-nums; white-space: nowrap; }
+    .offernote { font-size: 12px; color: var(--muted); background: #f1f6fb; border-radius: 10px; padding: 12px 14px; margin-top: 12px; line-height: 1.5; }
+    .offernote a { color: var(--accent2); font-weight: 600; text-decoration: none; }
+    .offernote a:hover { text-decoration: underline; }
     /* ---- Übersicht ---- */
     .intro { font-size: 15.5px; color: #34495a; max-width: 740px; }
     table.rank { width: 100%; border-collapse: collapse; margin-top: 16px; font-size: 13.5px; background: var(--card); border-radius: 12px; overflow: hidden; box-shadow: var(--shadow); }
@@ -479,6 +510,30 @@ const CHART = destinations.map((d) => ({
         <ul class="hl">
           {d.highlights.map((h) => (<li>{h}</li>))}
         </ul>
+
+        {d.offers && (
+          <Fragment>
+            <div class="sec-title">Konkrete All-Inclusive-Angebote · {d.offersMeta.date}</div>
+            <table class="offers">
+              <thead>
+                <tr><th>Hotel</th><th>Region</th><th>Bewertung</th><th>Preis Familie<br/>inkl. Flug</th></tr>
+              </thead>
+              <tbody>
+                {d.offers.map((o) => (
+                  <tr>
+                    <td><b>{o.hotel}</b> <span class="stars">★★★★★</span></td>
+                    <td>{o.region}</td>
+                    <td><span class="rbadge">{o.rating}</span> {o.ratingWord} <span class="rev">{o.reviews} Bew.</span></td>
+                    <td class="oprice">{eur(o.price)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            <div class="offernote">
+              {d.offersMeta.note} Quelle: {d.offersMeta.source} — <a href={d.offersMeta.url} target="_blank" rel="noopener">aktuelle Angebote ansehen ↗</a>
+            </div>
+          </Fragment>
+        )}
       </section>
     ))}
   </main>
