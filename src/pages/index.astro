@@ -102,6 +102,66 @@ const destinations = [
       'Ausflüge: Zoomarine, Wasserpark Slide & Splash, Bootstour Grotten',
     ],
   },
+  {
+    id: 'zypern', rank: 7, name: 'Zypern', region: 'Protaras / Paphos · Mittelmeer', flag: '🇨🇾',
+    character: 'Wärmstes EU-Meer im Herbst',
+    airport: 'BER → Larnaka (LCA)', flightTime: 3.75,
+    airTemp: 27, waterTemp: 25, sunHours: 8, rainDays: 2,
+    priceAI: 3300, priceSV: 2300,
+    tagline: 'Im Oktober das wärmste Meer der gesamten EU (~25°) und dazu noch sommerliche Lufttemperaturen. Flache, kinderfreundliche Strände wie in Protaras und kurze Flugzeit machen Zypern zum Top-Badeziel für den Herbst.',
+    weatherNote: 'Noch hochsommerlich warm und sonnig, das Meer angenehm warm. Nur selten Schauer.',
+    priceNote: 'Solide AI-Resorts und Ferienwohnungen, EU-Preisniveau. Sehr gutes Bade-zu-Flugzeit-Verhältnis.',
+    highlights: [
+      'Sehr warmes, ruhiges Meer & flache Buchten (Protaras, Fig Tree Bay)',
+      'Familien-Resorts mit Pool & Kinderbereich',
+      'Ausflüge: Kamelpark, Wasserpark WaterWorld, Höhlen von Cape Greco',
+    ],
+  },
+  {
+    id: 'fuerteventura', rank: 8, name: 'Fuerteventura', region: 'Kanaren · Spanien', flag: '🇪🇸',
+    character: 'Verlässlichste Herbstsonne',
+    airport: 'BER → Fuerteventura (FUE)', flightTime: 5,
+    airTemp: 24, waterTemp: 22, sunHours: 7, rainDays: 1,
+    priceAI: 3400, priceSV: 2400,
+    tagline: 'Das verlässlichste Schönwetter-Ziel im Herbst: endlose feine Sandstrände, kaum Regen und ganzjährig mildes Klima. Ideal für entspannte Strandtage mit Kindern — einzig der Flug ist mit rund 5 Stunden der längste.',
+    weatherNote: 'Stabil mild und trocken, kaum Regen. Oft etwas windig (gut gegen Hitze), Wasser noch angenehm.',
+    priceNote: 'Breites Angebot von AI bis Ferienwohnung. Etwas teurer wegen der längeren Flugdistanz.',
+    highlights: [
+      'Riesige, flach abfallende Sandstrände (Corralejo, Jandía)',
+      'Sehr familienfreundliche Resorts mit Pool-Landschaften',
+      'Ausflüge: Oasis Park (Zoo & Kamele), Dünen von Corralejo',
+    ],
+  },
+  {
+    id: 'agadir', rank: 9, name: 'Marokko', region: 'Agadir · Atlantikküste', flag: '🇲🇦',
+    character: 'Langer Sandstrand, gutes AI',
+    airport: 'BER → Agadir (AGA)', flightTime: 4,
+    airTemp: 25, waterTemp: 21, sunHours: 8, rainDays: 1,
+    priceAI: 2700, priceSV: 2000,
+    tagline: 'Über 100 Kilometer feiner Sandstrand, sehr stabiles Herbstwetter fast ohne Regen und gute All-Inclusive-Resorts zu moderatem Preis. Der Atlantik ist etwas kühler und kann Wellen haben — Planschen statt langer Badetage.',
+    weatherNote: 'Warm, sehr sonnig und nahezu regenfrei. Atlantikwasser kühler, teils Brandung.',
+    priceNote: 'Günstige große AI-Resorts an der Promenade. Selbstverpfleger seltener angeboten.',
+    highlights: [
+      'Kilometerlange Strandpromenade, ideal für Spaziergänge',
+      'AI-Resorts mit großzügigen Poolanlagen',
+      'Ausflüge: Souk El Had, Vogelpark, Ausflug nach Paradise Valley',
+    ],
+  },
+  {
+    id: 'djerba', rank: 10, name: 'Tunesien', region: 'Djerba · Mittelmeer', flag: '🇹🇳',
+    character: 'Top Preis-Leistung, viel Sonne',
+    airport: 'BER → Djerba (DJE)', flightTime: 2.75,
+    airTemp: 26, waterTemp: 22, sunHours: 8, rainDays: 2,
+    priceAI: 2400, priceSV: 1800,
+    tagline: 'Das günstigste All-Inclusive-Ziel im Vergleich, dazu sehr sonnenreich und mit der kurzen Flugzeit besonders familientauglich. Die flache Insel Djerba bietet ruhige, seichte Strände — ideal für kleine Kinder.',
+    weatherNote: 'Warm, trocken und sonnig, das Meer angenehm. Vereinzelt kurze Schauer möglich.',
+    priceNote: 'Sehr preiswerte AI-Resorts mit Animation. Bestes Preis-Leistungs-Verhältnis der Liste.',
+    highlights: [
+      'Flach abfallende, seichte Strände — sehr kindersicher',
+      'Günstige Familien-Resorts mit Kinderclub & Aquapark',
+      'Ausflüge: Krokodilfarm Djerba Explore, Töpferdorf Guellala',
+    ],
+  },
 ];
 
 // ---- Hilfsfunktionen ---------------------------------------
@@ -363,10 +423,10 @@ const CHART = destinations.map((d) => ({
       <div class="barchart" id="barchart"></div>
 
       <div class="callouts">
-        <div class="callout"><b>Günstigste Familie</b><span>Ägypten &gt; Türkei &gt; Andalusien</span></div>
-        <div class="callout"><b>Wärmstes Wetter</b><span>Ägypten (29°/26°), dann Türkei</span></div>
-        <div class="callout"><b>Kürzester Flug</b><span>Mallorca (2,5 h) &amp; Andalusien (3 h)</span></div>
-        <div class="callout"><b>Wärmstes Meer in der EU</b><span>Kreta &amp; Mallorca (~22–23°)</span></div>
+        <div class="callout"><b>Günstigste Familie</b><span>Djerba &gt; Türkei &amp; Ägypten</span></div>
+        <div class="callout"><b>Wärmstes Wetter</b><span>Ägypten (29°/26°), dann Zypern</span></div>
+        <div class="callout"><b>Kürzester Flug</b><span>Mallorca (2,5 h) &amp; Djerba (2,75 h)</span></div>
+        <div class="callout"><b>Wärmstes Meer</b><span>Ägypten (26°) &amp; Zypern (25°)</span></div>
       </div>
     </section>
 
