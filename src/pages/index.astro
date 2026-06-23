@@ -11,7 +11,7 @@
 //  fuer die zweite Oktoberhälfte. Keine verbindlichen Angebote.
 // =============================================================
 
-// Datenstand: Türkei mit konkreten AI-Angeboten (CHECK24).
+// Datenstand: Türkei mit konkreten AI-Angeboten (CHECK24) + Hotelkarte.
 const destinations = [
   {
     id: 'tuerkei', rank: 1, name: 'Türkei', region: 'Antalya · Türkische Riviera', flag: '🇹🇷',
@@ -33,16 +33,16 @@ const destinations = [
       note: 'Live-Momentaufnahme (Stand Juni 2026), 8 Tage / 7 Nächte, Flug + Unterkunft ab Berlin (BER), 2 Erw. + Kinder 8 & 5 J. Preise je Gesamtfamilie inkl. Flug; Verfügbarkeit & Preise ändern sich täglich.',
     },
     offers: [
-      { hotel: 'Side Crown Palace', region: 'Evrenseki · Side', stars: 5, rating: '7,5', ratingWord: 'Gut', reviews: '3.288', price: 3073 },
-      { hotel: 'Club Boran Mare Beach', region: 'Göynük · Kemer', stars: 5, rating: '8,6', ratingWord: 'Fabelhaft', reviews: '495', price: 3074 },
-      { hotel: 'Hotel Nova Park', region: 'Kumköy · Side', stars: 5, rating: '8,2', ratingWord: 'Sehr gut', reviews: '1.377', price: 3148 },
-      { hotel: 'Bodrum Holiday Resort & Spa', region: 'İçmeler · Bodrum', stars: 5, rating: '7,7', ratingWord: 'Gut', reviews: '406', price: 3204 },
-      { hotel: 'Side Breeze', region: 'Evrenseki · Side', stars: 5, rating: '8,6', ratingWord: 'Fabelhaft', reviews: '1.506', price: 3320 },
-      { hotel: 'Paloma Pasha', region: 'Özdere · Kuşadası', stars: 5, rating: '8,7', ratingWord: 'Fabelhaft', reviews: '623', price: 3404 },
-      { hotel: 'Ulusoy Kemer Holiday Club', region: 'Göynük · Kemer', stars: 5, rating: '8,6', ratingWord: 'Fabelhaft', reviews: '364', price: 3413 },
-      { hotel: 'Villa Side Residence', region: 'Kumköy · Side', stars: 5, rating: '8,7', ratingWord: 'Fabelhaft', reviews: '2.172', price: 3545 },
-      { hotel: 'Diamond Premium Hotel & Spa', region: 'Titreyengöl · Side', stars: 5, rating: '8,6', ratingWord: 'Fabelhaft', reviews: '3.100', price: 3568 },
-      { hotel: 'Club Melas Privé', region: 'Kumköy · Side', stars: 5, rating: '8,9', ratingWord: 'Fabelhaft', reviews: '1.900', price: 3765 },
+      { hotel: 'Side Crown Palace', region: 'Evrenseki · Side', stars: 5, rating: '7,5', ratingWord: 'Gut', reviews: '3.288', price: 3073, lat: 36.7682, lng: 31.3452 },
+      { hotel: 'Club Boran Mare Beach', region: 'Göynük · Kemer', stars: 5, rating: '8,6', ratingWord: 'Fabelhaft', reviews: '495', price: 3074, lat: 36.6520, lng: 30.5630 },
+      { hotel: 'Hotel Nova Park', region: 'Kumköy · Side', stars: 5, rating: '8,2', ratingWord: 'Sehr gut', reviews: '1.377', price: 3148, lat: 36.7805, lng: 31.3402 },
+      { hotel: 'Bodrum Holiday Resort & Spa', region: 'İçmeler · Bodrum', stars: 5, rating: '7,7', ratingWord: 'Gut', reviews: '406', price: 3204, lat: 37.0385, lng: 27.2705 },
+      { hotel: 'Side Breeze', region: 'Evrenseki · Side', stars: 5, rating: '8,6', ratingWord: 'Fabelhaft', reviews: '1.506', price: 3320, lat: 36.7665, lng: 31.3305 },
+      { hotel: 'Paloma Pasha', region: 'Özdere · Kuşadası', stars: 5, rating: '8,7', ratingWord: 'Fabelhaft', reviews: '623', price: 3404, lat: 38.0455, lng: 27.1185 },
+      { hotel: 'Ulusoy Kemer Holiday Club', region: 'Göynük · Kemer', stars: 5, rating: '8,6', ratingWord: 'Fabelhaft', reviews: '364', price: 3413, lat: 36.6485, lng: 30.5605 },
+      { hotel: 'Villa Side Residence', region: 'Kumköy · Side', stars: 5, rating: '8,7', ratingWord: 'Fabelhaft', reviews: '2.172', price: 3545, lat: 36.7822, lng: 31.3505 },
+      { hotel: 'Diamond Premium Hotel & Spa', region: 'Titreyengöl · Side', stars: 5, rating: '8,6', ratingWord: 'Fabelhaft', reviews: '3.100', price: 3568, lat: 36.7602, lng: 31.3002 },
+      { hotel: 'Club Melas Privé', region: 'Kumköy · Side', stars: 5, rating: '8,9', ratingWord: 'Fabelhaft', reviews: '1.900', price: 3765, lat: 36.7788, lng: 31.3552 },
     ],
   },
   {
@@ -185,6 +185,7 @@ const destinations = [
 // ---- Hilfsfunktionen ---------------------------------------
 const fmt = (n) => n.toLocaleString('de-DE');
 const eur = (n) => '~' + n.toLocaleString('de-DE') + ' €';
+const gmaps = (q) => 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(q);
 // Wärme-Klasse fuer Farbgebung (Lufttemperatur)
 const warmClass = (t) => (t >= 27 ? 'hot' : t >= 23 ? 'warm' : 'mild');
 
@@ -232,6 +233,8 @@ const CHART = destinations.map((d) => ({
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Familien-Urlaub Herbstferien — Zielvergleich</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+  <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
   <style is:inline>
     :root {
       --ink: #0f2e44; --muted: #5a7387; --line: #dbe9f3; --bg: #eef6fc;
@@ -353,6 +356,12 @@ const CHART = destinations.map((d) => ({
     .offernote { font-size: 12px; color: var(--muted); background: #f1f6fb; border-radius: 10px; padding: 12px 14px; margin-top: 12px; line-height: 1.5; }
     .offernote a { color: var(--accent2); font-weight: 600; text-decoration: none; }
     .offernote a:hover { text-decoration: underline; }
+    .hotelmap { width: 100%; height: 340px; border-radius: 14px; border: 1px solid var(--line); box-shadow: var(--shadow); margin-bottom: 8px; background: #e8eef4; }
+    .maphint { font-size: 11.5px; color: var(--muted); margin: 0 2px 14px; }
+    table.offers .hotellink { color: var(--ink); text-decoration: none; }
+    table.offers .hotellink:hover { color: var(--accent); text-decoration: underline; }
+    .leaflet-popup-content { font-family: inherit; font-size: 13px; }
+    .leaflet-popup-content a { color: var(--accent2); font-weight: 600; }
     /* ---- Übersicht ---- */
     .intro { font-size: 15.5px; color: #34495a; max-width: 740px; }
     table.rank { width: 100%; border-collapse: collapse; margin-top: 16px; font-size: 13.5px; background: var(--card); border-radius: 12px; overflow: hidden; box-shadow: var(--shadow); }
@@ -514,6 +523,9 @@ const CHART = destinations.map((d) => ({
         {d.offers && (
           <Fragment>
             <div class="sec-title">Konkrete All-Inclusive-Angebote · {d.offersMeta.date}</div>
+            <div id={`map-${d.id}`} class="hotelmap"></div>
+            <script type="application/json" id={`hotels-${d.id}`} set:html={JSON.stringify(d.offers.map((o) => ({ name: o.hotel, region: o.region, price: o.price, lat: o.lat, lng: o.lng })))}></script>
+            <div class="maphint">Karte: ungefähre Lage der Hotels (Resort-Ebene). Klick auf einen Marker → „in Google Maps öffnen". Kartendaten © OpenStreetMap-Mitwirkende.</div>
             <table class="offers">
               <thead>
                 <tr><th>Hotel</th><th>Region</th><th>Bewertung</th><th>Preis Familie<br/>inkl. Flug</th></tr>
@@ -521,7 +533,7 @@ const CHART = destinations.map((d) => ({
               <tbody>
                 {d.offers.map((o) => (
                   <tr>
-                    <td><b>{o.hotel}</b> <span class="stars">★★★★★</span></td>
+                    <td><b><a class="hotellink" href={gmaps(o.hotel + ' ' + o.region + ' Türkei')} target="_blank" rel="noopener">{o.hotel} ↗</a></b> <span class="stars">★★★★★</span></td>
                     <td>{o.region}</td>
                     <td><span class="rbadge">{o.rating}</span> {o.ratingWord} <span class="rev">{o.reviews} Bew.</span></td>
                     <td class="oprice">{eur(o.price)}</td>
@@ -530,7 +542,7 @@ const CHART = destinations.map((d) => ({
               </tbody>
             </table>
             <div class="offernote">
-              {d.offersMeta.note} Quelle: {d.offersMeta.source} — <a href={d.offersMeta.url} target="_blank" rel="noopener">aktuelle Angebote ansehen ↗</a>
+              {d.offersMeta.note} Preisquelle: {d.offersMeta.source} — <a href={d.offersMeta.url} target="_blank" rel="noopener">aktuelle Angebote ansehen ↗</a>. Hotel-Namen verlinken auf den Standort in Google Maps.
             </div>
           </Fragment>
         )}
@@ -540,7 +552,7 @@ const CHART = destinations.map((d) => ({
 
   <footer>
     <hr />
-    <p><b>Hinweis:</b> Preise sind realistische Richtwerte (Stand Juni 2026) für die gesamte Familie (2 Erwachsene + Kind 8 J. + Kind 5 J.), 7 Nächte inkl. Flug ab Berlin, im Reisezeitraum der Berliner Herbstferien (19.–31. Oktober 2026). „AI" = All-Inclusive, „Selbstverpfleger" = nur Flug + Unterkunft. Tatsächliche Preise hängen stark von Hotel, Buchungszeitpunkt und Verfügbarkeit ab. Wetterangaben sind langjährige Klima-Mittelwerte für die zweite Oktoberhälfte, keine Vorhersage. Keine verbindlichen Angebote — vor Buchung bitte aktuell prüfen.</p>
+    <p><b>Hinweis:</b> Preise sind realistische Richtwerte (Stand Juni 2026) für die gesamte Familie (2 Erwachsene + Kind 8 J. + Kind 5 J.), 7 Nächte inkl. Flug ab Berlin, im Reisezeitraum der Berliner Herbstferien (19.–31. Oktober 2026). „AI" = All-Inclusive, „Selbstverpfleger" = nur Flug + Unterkunft. Bei der Türkei sind zusätzlich konkrete, live recherchierte Angebote für 24.–31.10.2026 hinterlegt; die Kartenmarker zeigen die ungefähre Resort-Lage. Tatsächliche Preise hängen stark von Hotel, Buchungszeitpunkt und Verfügbarkeit ab. Wetterangaben sind langjährige Klima-Mittelwerte für die zweite Oktoberhälfte, keine Vorhersage. Keine verbindlichen Angebote — vor Buchung bitte aktuell prüfen.</p>
   </footer>
 
   <script type="application/json" id="chartdata" set:html={JSON.stringify(CHART)}></script>
@@ -569,6 +581,9 @@ const CHART = destinations.map((d) => ({
       var lbl = document.getElementById('det-label'); if (lbl) lbl.textContent = item ? ' · ' + item.getAttribute('data-name') : '';
       document.querySelectorAll('.menu-item').forEach((b) => b.classList.toggle('active', b.getAttribute('data-id') === id));
       closeMenu();
+      if (window.__maps && window.__maps[id]) {
+        setTimeout(function () { window.__maps[id].map.invalidateSize(); window.__maps[id].map.fitBounds(window.__maps[id].bounds, { padding: [30, 30] }); }, 260);
+      }
     }
     function showLoc(id) { if (id === 'overview') showOverview(); else selectRegion(id); }
     document.addEventListener('click', function (e) {
@@ -607,6 +622,31 @@ const CHART = destinations.map((d) => ({
       b.addEventListener('click', function () { renderChart(b.getAttribute('data-metric')); });
     });
     renderChart('priceAI');
+
+    /* --- Hotel-Karten (Leaflet/OpenStreetMap) --- */
+    window.__maps = {};
+    function initHotelMap(id) {
+      var el = document.getElementById('map-' + id);
+      var dataEl = document.getElementById('hotels-' + id);
+      if (!el || !dataEl || typeof L === 'undefined') return;
+      var data = JSON.parse(dataEl.textContent);
+      if (!data.length) return;
+      var map = L.map('map-' + id, { scrollWheelZoom: false });
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18, attribution: '© OpenStreetMap' }).addTo(map);
+      var pts = [];
+      data.forEach(function (h) {
+        var g = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(h.name + ' ' + h.region + ' Türkei');
+        L.marker([h.lat, h.lng]).addTo(map).bindPopup(
+          '<b>' + h.name + '</b><br>' + h.region + '<br>~' + h.price.toLocaleString('de-DE') + ' € / Familie<br>' +
+          '<a href="' + g + '" target="_blank" rel="noopener">in Google Maps öffnen ↗</a>'
+        );
+        pts.push([h.lat, h.lng]);
+      });
+      var bounds = L.latLngBounds(pts);
+      map.fitBounds(bounds, { padding: [30, 30] });
+      window.__maps[id] = { map: map, bounds: bounds };
+    }
+    initHotelMap('tuerkei');
   </script>
 </body>
 </html>
