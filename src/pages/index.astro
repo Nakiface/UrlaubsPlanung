@@ -180,6 +180,36 @@ const destinations = [
       'Ausflüge: Krokodilfarm Djerba Explore, Töpferdorf Guellala',
     ],
   },
+  {
+    id: 'kroatien', rank: 11, name: 'Kroatien', region: 'Dalmatien · Adria', flag: '🇭🇷',
+    character: 'Kurzer Flug, Adria & Natur',
+    airport: 'BER → Split (SPU)', flightTime: 1.75,
+    airTemp: 19, waterTemp: 20, sunHours: 6, rainDays: 6,
+    priceAI: 3000, priceSV: 2100,
+    tagline: 'Kristallklare Adria, hübsche Altstädte und sehr kurze Flugzeit. Im Spätoktober ist die Hauptsaison vorbei — angenehm ruhig, aber kühler und wechselhafter; eher für Erkunden und milde Badetage als für Hochsommer-Strandurlaub.',
+    weatherNote: 'Mild, aber Nebensaison: kühlere Luft, zunehmend Regen. Das Meer ist vom Sommer noch lauwarm. Viele Strandhotels schließen Ende Oktober.',
+    priceNote: 'Eher Ferienwohnungen/Apartments als reine AI-Resorts; AI-Auswahl im Herbst begrenzt. Preise EU-Niveau, kurzer Flug spart Reisestress.',
+    highlights: [
+      'Sehr kurze Flugzeit ab Berlin',
+      'Kies- & Felsbuchten mit klarem Wasser (Makarska, Split-Umgebung)',
+      'Ausflüge: Altstadt Split (Diokletianpalast), Krka-Wasserfälle, Trogir',
+    ],
+  },
+  {
+    id: 'albanien', rank: 12, name: 'Albanien', region: 'Albanische Riviera · Ionisches Meer', flag: '🇦🇱',
+    character: 'Günstig, mild, Geheimtipp',
+    airport: 'BER → Tirana (TIA)', flightTime: 2.25,
+    airTemp: 21, waterTemp: 21, sunHours: 7, rainDays: 5,
+    priceAI: 2500, priceSV: 1700,
+    tagline: 'Günstiges, aufstrebendes Mittelmeerziel mit langen Stränden und mildem Herbstklima. Noch wenig auf Pauschal-AI ausgelegt, dafür preiswerte Unterkünfte und entspannte Atmosphäre abseits des Massentourismus.',
+    weatherNote: 'Mild und meist sonnig, das Ionische Meer noch angenehm warm. Gegen Ende Oktober vereinzelt Regen.',
+    priceNote: 'Sehr günstig; reine AI-Resorts noch begrenzt, Selbstverpfleger (Apartments) günstig und verbreitet. Transfer ab Tirana ggf. länger.',
+    highlights: [
+      'Lange, günstige Strände (Saranda, Ksamil, Durrës)',
+      'Preiswerte Unterkünfte & Gastronomie',
+      'Ausflüge: Butrint (UNESCO), Blue Eye-Quelle, Stadt Berat',
+    ],
+  },
 ];
 
 // ---- Hilfsfunktionen ---------------------------------------
@@ -463,9 +493,9 @@ const CHART = destinations.map((d) => ({
       <div class="barchart" id="barchart"></div>
 
       <div class="callouts">
-        <div class="callout"><b>Günstigste Familie</b><span>Djerba &gt; Ägypten &gt; Marokko</span></div>
+        <div class="callout"><b>Günstigste Familie</b><span>Djerba &gt; Albanien &gt; Ägypten</span></div>
         <div class="callout"><b>Wärmstes Wetter</b><span>Ägypten (29°/26°), dann Zypern</span></div>
-        <div class="callout"><b>Kürzester Flug</b><span>Mallorca (2,5 h) &amp; Djerba (2,75 h)</span></div>
+        <div class="callout"><b>Kürzester Flug</b><span>Kroatien (1,75 h) &amp; Mallorca (2,5 h)</span></div>
         <div class="callout"><b>Wärmstes Meer</b><span>Ägypten (26°) &amp; Zypern (25°)</span></div>
       </div>
     </section>
