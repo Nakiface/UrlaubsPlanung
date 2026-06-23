@@ -18,10 +18,10 @@ const destinations = [
     character: 'Bestes Preis-Leistungs-Verhältnis',
     airport: 'BER → Antalya (AYT)', flightTime: 3.25,
     airTemp: 25, waterTemp: 23, sunHours: 8, rainDays: 5,
-    priceAI: 2900, priceSV: 2100,
+    priceAI: 3070, priceSV: 2100,
     tagline: 'Riesige familienfreundliche All-Inclusive-Resorts mit Aquaparks, flach abfallende Sandstrände und im Oktober noch verlässlich warmes Badewetter — alles zum besten Familienpreis im Vergleich.',
     weatherNote: 'Stabil warm und sonnig, ideal zum Baden. Nur vereinzelt kurze Schauer.',
-    priceNote: 'AI-Hochburg: Familienresorts mit Kinderclub & Aquapark sind hier am günstigsten. Kinder zahlen oft stark reduziert.',
+    priceNote: 'AI-Hochburg: Familienresorts mit Kinderclub & Aquapark sind hier am günstigsten. Real gefundene Angebote (24.–31.10.) ab ~3.070 € bis ~3.770 € — siehe Liste unten.',
     highlights: [
       'Große Familien-Resorts mit Aquapark, Kinderclub & Animation',
       'Flach abfallende Sandstrände (Lara, Belek, Side)',
@@ -402,7 +402,7 @@ const CHART = destinations.map((d) => ({
     <div class="nav-inner">
       <div class="brand">
         <span class="mark">🏖️</span>
-        <h1>Herbstferien-Urlaub <span>· 6 Familienziele im Vergleich</span></h1>
+        <h1>Herbstferien-Urlaub <span>· Familienziele im Vergleich</span></h1>
       </div>
       <nav class="tabs" id="tabs">
         <button class="navbtn active" id="nav-overview" onclick="showOverview()">Übersicht</button>
@@ -463,7 +463,7 @@ const CHART = destinations.map((d) => ({
       <div class="barchart" id="barchart"></div>
 
       <div class="callouts">
-        <div class="callout"><b>Günstigste Familie</b><span>Djerba &gt; Türkei &amp; Ägypten</span></div>
+        <div class="callout"><b>Günstigste Familie</b><span>Djerba &gt; Ägypten &gt; Marokko</span></div>
         <div class="callout"><b>Wärmstes Wetter</b><span>Ägypten (29°/26°), dann Zypern</span></div>
         <div class="callout"><b>Kürzester Flug</b><span>Mallorca (2,5 h) &amp; Djerba (2,75 h)</span></div>
         <div class="callout"><b>Wärmstes Meer</b><span>Ägypten (26°) &amp; Zypern (25°)</span></div>
@@ -532,7 +532,7 @@ const CHART = destinations.map((d) => ({
                 {d.offers.map((o) => (
                   <tr>
                     <td><b><a class="hotellink" href={o.url} target="_blank" rel="noopener">{o.hotel} ↗</a></b> <span class="stars">★★★★★</span></td>
-                    <td>{o.region}</td>
+                    <td><a class="hotellink" href={gmaps(o.region.replace(' · ', ' ') + ' Türkei')} target="_blank" rel="noopener">{o.region} ↗</a></td>
                     <td><span class="rbadge">{o.rating}</span> {o.ratingWord} <span class="rev">{o.reviews} Bew.</span></td>
                     <td class="oprice">{eur(o.price)}</td>
                   </tr>
