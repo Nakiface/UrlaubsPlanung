@@ -178,14 +178,31 @@ const destinations = [
     character: 'Landschaftlich schön, Atlantik kühler',
     airport: 'BER → Faro (FAO)', flightTime: 3.5,
     airTemp: 22, waterTemp: 20, sunHours: 7, rainDays: 5,
-    priceAI: 3200, priceSV: 2100,
+    priceAI: 3640, priceSV: 2100,
     tagline: 'Spektakuläre Felsküsten, goldene Strände und viel Platz. Die Algarve ist landschaftlich das Highlight — der Atlantik ist allerdings kühler als das Mittelmeer und im Oktober eher zum Planschen als für lange Badetage.',
     weatherNote: 'Mild und überwiegend sonnig an Land. Atlantikwasser spürbar kühler, Wellen — Baden für Kinder begrenzt.',
-    priceNote: 'Stark im Bereich Ferienhäuser & Apartments (Selbstverpfleger günstig). Reine AI-Resorts sind seltener.',
+    priceNote: 'Real gefundene AI-Angebote (24.–31.10.) ab ~3.640 € bis ~4.300 € — Schwerpunkt Albufeira/Alvor. Stark bei Ferienhäusern (Selbstverpfleger günstig). Siehe Liste unten.',
     highlights: [
       'Beeindruckende Felsbuchten (Lagos, Praia da Marinha)',
       'Ferienhäuser mit Pool — ideal für Selbstverpfleger',
       'Ausflüge: Zoomarine, Wasserpark Slide & Splash, Bootstour Grotten',
+    ],
+    offersMeta: {
+      source: 'CHECK24', date: '24.–31.10.2026',
+      url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&areaId=554&ds=r&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight',
+      note: 'Live-Momentaufnahme (Stand Juni 2026), 8 Tage / 7 Nächte, Flug + Unterkunft ab Berlin (BER), 2 Erw. + Kinder 8 & 5 J. Preise je Gesamtfamilie inkl. Flug; Verfügbarkeit & Preise ändern sich täglich.',
+    },
+    offers: [
+      { hotel: 'Mónica Isabel', region: 'Albufeira · Algarve', stars: 5, rating: '7,5', ratingWord: 'Gut', reviews: '43', price: 3636, lat: 37.089, lng: -8.25, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&areaId=554&ds=r&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=2886' },
+      { hotel: 'Golden Club Cabanas', region: 'Cabanas · Algarve', stars: 5, rating: '7,8', ratingWord: 'Gut', reviews: '327', price: 3651, lat: 37.135, lng: -7.617, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&areaId=554&ds=r&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=71' },
+      { hotel: 'Ukino Terrace Algarve Concept Hotel', region: 'Porches · Algarve', stars: 5, rating: '8,0', ratingWord: 'Sehr gut', reviews: '124', price: 3722, lat: 37.101, lng: -8.4, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&areaId=554&ds=r&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=139423' },
+      { hotel: 'Ukino Family Palmeiras Village', region: 'Armação de Pera · Algarve', stars: 5, rating: '8,4', ratingWord: 'Sehr gut', reviews: '83', price: 3833, lat: 37.101, lng: -8.358, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&areaId=554&ds=r&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=31426' },
+      { hotel: 'Auramar Beach Resort', region: 'Albufeira · Algarve', stars: 5, rating: '7,8', ratingWord: 'Gut', reviews: '455', price: 3890, lat: 37.09, lng: -8.23, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&areaId=554&ds=r&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=2864' },
+      { hotel: 'RR Club Amarilis', region: 'Olhos de Água · Algarve', stars: 5, rating: '8,0', ratingWord: 'Sehr gut', reviews: '621', price: 4008, lat: 37.09, lng: -8.193, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&areaId=554&ds=r&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=4504' },
+      { hotel: 'Muthu Balaia Sol', region: 'Albufeira · Algarve', stars: 5, rating: '8,0', ratingWord: 'Sehr gut', reviews: '284', price: 4044, lat: 37.092, lng: -8.24, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&areaId=554&ds=r&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=6406' },
+      { hotel: 'Alvor Baia Resort Hotel', region: 'Alvor · Algarve', stars: 5, rating: '8,4', ratingWord: 'Sehr gut', reviews: '49', price: 4132, lat: 37.128, lng: -8.593, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&areaId=554&ds=r&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=27745' },
+      { hotel: 'Hotel Apartamento Paraiso De Albufeira', region: 'Albufeira · Algarve', stars: 5, rating: '7,5', ratingWord: 'Gut', reviews: '1.013', price: 4276, lat: 37.086, lng: -8.255, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&areaId=554&ds=r&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=16269' },
+      { hotel: '3HB Clube Humbria', region: 'Albufeira · Algarve', stars: 5, rating: '8,6', ratingWord: 'Fabelhaft', reviews: '14', price: 4298, lat: 37.088, lng: -8.245, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&areaId=554&ds=r&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=16288' },
     ],
   },
   {
@@ -193,14 +210,31 @@ const destinations = [
     character: 'Wärmstes EU-Meer im Herbst',
     airport: 'BER → Larnaka (LCA)', flightTime: 3.75,
     airTemp: 27, waterTemp: 25, sunHours: 8, rainDays: 2,
-    priceAI: 3300, priceSV: 2300,
+    priceAI: 3470, priceSV: 2300,
     tagline: 'Im Oktober das wärmste Meer der gesamten EU (~25°) und dazu noch sommerliche Lufttemperaturen. Flache, kinderfreundliche Strände wie in Protaras und kurze Flugzeit machen Zypern zum Top-Badeziel für den Herbst.',
     weatherNote: 'Noch hochsommerlich warm und sonnig, das Meer angenehm warm. Nur selten Schauer.',
-    priceNote: 'Solide AI-Resorts und Ferienwohnungen, EU-Preisniveau. Sehr gutes Bade-zu-Flugzeit-Verhältnis.',
+    priceNote: 'Real gefundene AI-Angebote (24.–31.10.) ab ~3.470 € bis ~4.280 € — warmes Meer & gutes Bade-zu-Flugzeit-Verhältnis. Schwerpunkte Protaras, Ayia Napa, Paphos. Siehe Liste unten.',
     highlights: [
       'Sehr warmes, ruhiges Meer & flache Buchten (Protaras, Fig Tree Bay)',
       'Familien-Resorts mit Pool & Kinderbereich',
       'Ausflüge: Kamelpark, Wasserpark WaterWorld, Höhlen von Cape Greco',
+    ],
+    offersMeta: {
+      source: 'CHECK24', date: '24.–31.10.2026',
+      url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&countryId=125&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight',
+      note: 'Live-Momentaufnahme (Stand Juni 2026), 8 Tage / 7 Nächte, Flug + Unterkunft ab Berlin (BER), 2 Erw. + Kinder 8 & 5 J. Preise je Gesamtfamilie inkl. Flug; Verfügbarkeit & Preise ändern sich täglich.',
+    },
+    offers: [
+      { hotel: 'Papouis Protaras Hotel', region: 'Protaras · Zypern', stars: 5, rating: '8,2', ratingWord: 'Sehr gut', reviews: '35', price: 3499, lat: 35.012, lng: 34.058, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&countryId=125&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=3194' },
+      { hotel: 'Papantonia Hotel', region: 'Protaras · Zypern', stars: 5, rating: '8,6', ratingWord: 'Fabelhaft', reviews: '203', price: 3744, lat: 35.015, lng: 34.055, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&countryId=125&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=26661' },
+      { hotel: 'Avlida Hotel', region: 'Paphos · Zypern', stars: 5, rating: '8,2', ratingWord: 'Sehr gut', reviews: '2.808', price: 3776, lat: 34.76, lng: 32.42, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&countryId=125&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=3219' },
+      { hotel: 'Stamatia Hotel', region: 'Ayia Napa · Zypern', stars: 5, rating: '7,8', ratingWord: 'Gut', reviews: '133', price: 3808, lat: 34.988, lng: 33.995, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&countryId=125&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=3203' },
+      { hotel: 'Cynthiana Beach', region: 'Paphos · Zypern', stars: 5, rating: '8,2', ratingWord: 'Sehr gut', reviews: '181', price: 3821, lat: 34.86, lng: 32.39, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&countryId=125&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=3224' },
+      { hotel: 'Maris Grand Waterpark Resort', region: 'Paphos · Zypern', stars: 5, rating: '8,6', ratingWord: 'Fabelhaft', reviews: '370', price: 3855, lat: 34.745, lng: 32.45, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&countryId=125&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=5597' },
+      { hotel: 'Akti Beach Village Resort', region: 'Paphos · Zypern', stars: 5, rating: '7,7', ratingWord: 'Gut', reviews: '208', price: 4000, lat: 34.742, lng: 32.412, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&countryId=125&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=11314' },
+      { hotel: 'Aktea Beach Village', region: 'Ayia Napa · Zypern', stars: 5, rating: '8,2', ratingWord: 'Sehr gut', reviews: '138', price: 4164, lat: 34.985, lng: 33.985, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&countryId=125&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=12910' },
+      { hotel: 'Nelia Beach Hotel', region: 'Ayia Napa · Zypern', stars: 5, rating: '8,2', ratingWord: 'Sehr gut', reviews: '323', price: 4176, lat: 34.986, lng: 34.0, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&countryId=125&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=3186' },
+      { hotel: 'Malama Beach Holiday Village', region: 'Protaras · Zypern', stars: 5, rating: '8,7', ratingWord: 'Fabelhaft', reviews: '209', price: 4275, lat: 35.02, lng: 34.05, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&countryId=125&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=3181' },
     ],
   },
   {
@@ -208,14 +242,31 @@ const destinations = [
     character: 'Verlässlichste Herbstsonne',
     airport: 'BER → Fuerteventura (FUE)', flightTime: 5,
     airTemp: 24, waterTemp: 22, sunHours: 7, rainDays: 1,
-    priceAI: 3400, priceSV: 2400,
+    priceAI: 4920, priceSV: 2400,
     tagline: 'Das verlässlichste Schönwetter-Ziel im Herbst: endlose feine Sandstrände, kaum Regen und ganzjährig mildes Klima. Ideal für entspannte Strandtage mit Kindern — einzig der Flug ist mit rund 5 Stunden der längste.',
     weatherNote: 'Stabil mild und trocken, kaum Regen. Oft etwas windig (gut gegen Hitze), Wasser noch angenehm.',
-    priceNote: 'Breites Angebot von AI bis Ferienwohnung. Etwas teurer wegen der längeren Flugdistanz.',
+    priceNote: 'Real gefundene AI-Angebote (24.–31.10.) ab ~4.920 € bis ~6.390 € — das teuerste Ziel im Vergleich (Kanaren-Premium + langer Flug). Schwerpunkte Costa Calma, Jandía, Corralejo. Siehe Liste unten.',
     highlights: [
       'Riesige, flach abfallende Sandstrände (Corralejo, Jandía)',
       'Sehr familienfreundliche Resorts mit Pool-Landschaften',
       'Ausflüge: Oasis Park (Zoo & Kamele), Dünen von Corralejo',
+    ],
+    offersMeta: {
+      source: 'CHECK24', date: '24.–31.10.2026',
+      url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&areaId=552&ds=r&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight',
+      note: 'Live-Momentaufnahme (Stand Juni 2026), 8 Tage / 7 Nächte, Flug + Unterkunft ab Berlin (BER), 2 Erw. + Kinder 8 & 5 J. Preise je Gesamtfamilie inkl. Flug; Verfügbarkeit & Preise ändern sich täglich.',
+    },
+    offers: [
+      { hotel: 'Hotel Drago Park by Pierre & Vacances', region: 'Costa Calma · Fuerteventura', stars: 5, rating: '7,5', ratingWord: 'Gut', reviews: '444', price: 4916, lat: 28.158, lng: -14.23, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&areaId=552&ds=r&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=8605' },
+      { hotel: 'Hotel Royal Suite', region: 'Costa Calma · Fuerteventura', stars: 5, rating: '7,7', ratingWord: 'Gut', reviews: '275', price: 4938, lat: 28.16, lng: -14.232, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&areaId=552&ds=r&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=7303' },
+      { hotel: 'Hotel LIVVO Jandía Golf', region: 'Jandía · Fuerteventura', stars: 5, rating: '7,1', ratingWord: 'Gut', reviews: '73', price: 4969, lat: 28.06, lng: -14.33, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&areaId=552&ds=r&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=14687' },
+      { hotel: 'TUI KIDS CLUB Riu Oliva Beach', region: 'Corralejo · Fuerteventura', stars: 5, rating: '8,2', ratingWord: 'Sehr gut', reviews: '1.646', price: 4994, lat: 28.73, lng: -13.86, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&areaId=552&ds=r&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=19266' },
+      { hotel: 'SBH Hotel Club Paraiso Playa', region: 'Esquinzo · Fuerteventura', stars: 5, rating: '7,5', ratingWord: 'Gut', reviews: '1.643', price: 5518, lat: 28.1, lng: -14.3, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&areaId=552&ds=r&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=9503' },
+      { hotel: 'Club Jandía Princess', region: 'Esquinzo · Fuerteventura', stars: 5, rating: '7,8', ratingWord: 'Gut', reviews: '1.174', price: 5520, lat: 28.095, lng: -14.305, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&areaId=552&ds=r&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=5861' },
+      { hotel: 'SBH Hotel Taro Beach', region: 'Costa Calma · Fuerteventura', stars: 5, rating: '7,8', ratingWord: 'Gut', reviews: '1.709', price: 5587, lat: 28.155, lng: -14.235, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&areaId=552&ds=r&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=167' },
+      { hotel: 'SBH Monica Beach Resort', region: 'Costa Calma · Fuerteventura', stars: 5, rating: '7,8', ratingWord: 'Gut', reviews: '2.467', price: 5618, lat: 28.15, lng: -14.24, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&areaId=552&ds=r&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=1831' },
+      { hotel: 'TUI MAGIC LIFE Fuerteventura', region: 'Esquinzo · Fuerteventura', stars: 5, rating: '8,0', ratingWord: 'Sehr gut', reviews: '1.152', price: 5660, lat: 28.105, lng: -14.298, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&areaId=552&ds=r&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=23689' },
+      { hotel: 'R2 Buganvilla Hotel & Spa', region: 'Jandía · Fuerteventura', stars: 5, rating: '8,6', ratingWord: 'Fabelhaft', reviews: '1.542', price: 6388, lat: 28.065, lng: -14.34, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&areaId=552&ds=r&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=6819' },
     ],
   },
   {
@@ -223,29 +274,60 @@ const destinations = [
     character: 'Langer Sandstrand, gutes AI',
     airport: 'BER → Agadir (AGA)', flightTime: 4,
     airTemp: 25, waterTemp: 21, sunHours: 8, rainDays: 1,
-    priceAI: 2700, priceSV: 2000,
+    priceAI: 5380, priceSV: 2000,
     tagline: 'Über 100 Kilometer feiner Sandstrand, sehr stabiles Herbstwetter fast ohne Regen und gute All-Inclusive-Resorts zu moderatem Preis. Der Atlantik ist etwas kühler und kann Wellen haben — Planschen statt langer Badetage.',
     weatherNote: 'Warm, sehr sonnig und nahezu regenfrei. Atlantikwasser kühler, teils Brandung.',
-    priceNote: 'Günstige große AI-Resorts an der Promenade. Selbstverpfleger seltener angeboten.',
+    priceNote: 'Achtung: Für 24.–31.10. ab Berlin nur wenige AI-Resorts und überraschend teuer — real ab ~5.380 € bis ~6.760 € (kaum Direktflüge in diesem Zeitraum). Außerhalb der Herbstferien meist deutlich günstiger. Siehe Liste unten.',
     highlights: [
       'Kilometerlange Strandpromenade, ideal für Spaziergänge',
       'AI-Resorts mit großzügigen Poolanlagen',
       'Ausflüge: Souk El Had, Vogelpark, Ausflug nach Paradise Valley',
     ],
+    offersMeta: {
+      source: 'CHECK24', date: '24.–31.10.2026',
+      url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&areaId=665&cityId=1049&ds=ci&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight',
+      note: 'Live-Momentaufnahme (Stand Juni 2026), 8 Tage / 7 Nächte, Flug + Unterkunft ab Berlin (BER), 2 Erw. + Kinder 8 & 5 J. Preise je Gesamtfamilie inkl. Flug; Verfügbarkeit & Preise ändern sich täglich.',
+    },
+    offers: [
+      { hotel: 'Valeria Jardins d\'Agadir Resort', region: 'Agadir · Atlantikküste', stars: 5, rating: '7,3', ratingWord: 'Gut', reviews: '28', price: 5382, lat: 30.418, lng: -9.6, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&areaId=665&cityId=1049&ds=ci&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=76346' },
+      { hotel: 'Allegro Agadir', region: 'Agadir · Atlantikküste', stars: 5, rating: '7,8', ratingWord: 'Gut', reviews: '92', price: 5790, lat: 30.413, lng: -9.602, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&areaId=665&cityId=1049&ds=ci&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=82' },
+      { hotel: 'Riu Tikida Dunas', region: 'Agadir · Atlantikküste', stars: 5, rating: '8,6', ratingWord: 'Fabelhaft', reviews: '369', price: 5836, lat: 30.41, lng: -9.604, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&areaId=665&cityId=1049&ds=ci&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=11965' },
+      { hotel: 'Iberostar Waves Founty Beach', region: 'Agadir · Atlantikküste', stars: 5, rating: '8,4', ratingWord: 'Sehr gut', reviews: '166', price: 6470, lat: 30.405, lng: -9.61, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&areaId=665&cityId=1049&ds=ci&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=11522' },
+      { hotel: 'Hotel Riu Palace Tikida Agadir', region: 'Agadir · Atlantikküste', stars: 5, rating: '8,6', ratingWord: 'Fabelhaft', reviews: '112', price: 6486, lat: 30.408, lng: -9.606, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&areaId=665&cityId=1049&ds=ci&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=26964' },
+      { hotel: 'Agadir Beach Club Hotel', region: 'Agadir · Atlantikküste', stars: 5, rating: '7,8', ratingWord: 'Gut', reviews: '58', price: 6575, lat: 30.412, lng: -9.601, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&areaId=665&cityId=1049&ds=ci&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=83' },
+      { hotel: 'Pickalbatros Palais Des Roses', region: 'Agadir · Atlantikküste', stars: 5, rating: '7,1', ratingWord: 'Gut', reviews: '14', price: 6758, lat: 30.42, lng: -9.598, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&areaId=665&cityId=1049&ds=ci&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=13624' },
+    ],
   },
   {
     id: 'djerba', rank: 10, name: 'Tunesien', region: 'Djerba · Mittelmeer', flag: '🇹🇳',
-    character: 'Top Preis-Leistung, viel Sonne',
+    character: 'Viel Sonne, seichte Familienstrände',
     airport: 'BER → Djerba (DJE)', flightTime: 2.75,
     airTemp: 26, waterTemp: 22, sunHours: 8, rainDays: 2,
-    priceAI: 2400, priceSV: 1800,
+    priceAI: 4520, priceSV: 1800,
     tagline: 'Das günstigste All-Inclusive-Ziel im Vergleich, dazu sehr sonnenreich und mit der kurzen Flugzeit besonders familientauglich. Die flache Insel Djerba bietet ruhige, seichte Strände — ideal für kleine Kinder.',
     weatherNote: 'Warm, trocken und sonnig, das Meer angenehm. Vereinzelt kurze Schauer möglich.',
-    priceNote: 'Sehr preiswerte AI-Resorts mit Animation. Bestes Preis-Leistungs-Verhältnis der Liste.',
+    priceNote: 'Achtung: Für 24.–31.10. ab Berlin real ab ~4.520 € bis ~5.280 € — in den Herbstferien deutlich teurer als sonst (begrenzte Direktflüge). Außerhalb der Ferien ist Djerba meist sehr günstig. Siehe Liste unten.',
     highlights: [
       'Flach abfallende, seichte Strände — sehr kindersicher',
       'Günstige Familien-Resorts mit Kinderclub & Aquapark',
       'Ausflüge: Krokodilfarm Djerba Explore, Töpferdorf Guellala',
+    ],
+    offersMeta: {
+      source: 'CHECK24', date: '24.–31.10.2026',
+      url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&areaId=663&ds=r&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight',
+      note: 'Live-Momentaufnahme (Stand Juni 2026), 8 Tage / 7 Nächte, Flug + Unterkunft ab Berlin (BER), 2 Erw. + Kinder 8 & 5 J. Preise je Gesamtfamilie inkl. Flug; Verfügbarkeit & Preise ändern sich täglich.',
+    },
+    offers: [
+      { hotel: 'Hotel Telemaque Beach & Spa', region: 'Aghir · Djerba', stars: 5, rating: '8,0', ratingWord: 'Sehr gut', reviews: '120', price: 4517, lat: 33.745, lng: 11.03, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&areaId=663&ds=r&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=2258' },
+      { hotel: 'Royal Karthago Resort & Thalasso', region: 'Aghir · Djerba', stars: 5, rating: '7,7', ratingWord: 'Gut', reviews: '276', price: 4623, lat: 33.748, lng: 11.028, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&areaId=663&ds=r&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=2252' },
+      { hotel: 'Djerba Holiday Beach', region: 'Midoun · Djerba', stars: 5, rating: '7,7', ratingWord: 'Gut', reviews: '63', price: 4860, lat: 33.81, lng: 11.0, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&areaId=663&ds=r&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=4853' },
+      { hotel: 'Hôtel Golf Beach & Spa', region: 'Aghir · Djerba', stars: 5, rating: '7,5', ratingWord: 'Gut', reviews: '92', price: 4920, lat: 33.75, lng: 11.025, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&areaId=663&ds=r&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=20426' },
+      { hotel: 'Djerba Resort', region: 'Midoun · Djerba', stars: 5, rating: '7,5', ratingWord: 'Gut', reviews: '166', price: 4972, lat: 33.815, lng: 10.995, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&areaId=663&ds=r&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=9664' },
+      { hotel: 'Hotel Meninx Djerba', region: 'Aghir · Djerba', stars: 5, rating: '7,5', ratingWord: 'Gut', reviews: '343', price: 5012, lat: 33.752, lng: 11.022, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&areaId=663&ds=r&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=2251' },
+      { hotel: 'Seabel Rym Beach', region: 'Aghir · Djerba', stars: 5, rating: '8,2', ratingWord: 'Sehr gut', reviews: '204', price: 5047, lat: 33.742, lng: 11.035, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&areaId=663&ds=r&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=2255' },
+      { hotel: 'Caribbean World Djerba', region: 'Sidi Mahres · Djerba', stars: 5, rating: '7,3', ratingWord: 'Gut', reviews: '199', price: 5060, lat: 33.85, lng: 10.92, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&areaId=663&ds=r&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=2237' },
+      { hotel: 'Calimera Yati Beach', region: 'Sidi Mahres · Djerba', stars: 5, rating: '8,0', ratingWord: 'Sehr gut', reviews: '672', price: 5084, lat: 33.855, lng: 10.915, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&areaId=663&ds=r&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=2262' },
+      { hotel: 'Yadis Djerba Golf Thalasso & Spa', region: 'Aghir · Djerba', stars: 5, rating: '7,7', ratingWord: 'Gut', reviews: '288', price: 5168, lat: 33.738, lng: 11.04, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&areaId=663&ds=r&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=2261' },
     ],
   },
   {
@@ -253,14 +335,26 @@ const destinations = [
     character: 'Kurzer Flug, Adria & Natur',
     airport: 'BER → Split (SPU)', flightTime: 1.75,
     airTemp: 19, waterTemp: 20, sunHours: 6, rainDays: 6,
-    priceAI: 3000, priceSV: 2100,
+    priceAI: 3130, priceSV: 2100,
     tagline: 'Kristallklare Adria, hübsche Altstädte und sehr kurze Flugzeit. Im Spätoktober ist die Hauptsaison vorbei — angenehm ruhig, aber kühler und wechselhafter; eher für Erkunden und milde Badetage als für Hochsommer-Strandurlaub.',
     weatherNote: 'Mild, aber Nebensaison: kühlere Luft, zunehmend Regen. Das Meer ist vom Sommer noch lauwarm. Viele Strandhotels schließen Ende Oktober.',
-    priceNote: 'Eher Ferienwohnungen/Apartments als reine AI-Resorts; AI-Auswahl im Herbst begrenzt. Preise EU-Niveau, kurzer Flug spart Reisestress.',
+    priceNote: 'Im Spätoktober nur sehr wenige AI-Resorts (Nebensaison, viele Strandhotels geschlossen) — real ab ~3.130 € bis ~4.100 €. Kurzer Flug. Für Selbstverpfleger/Ferienwohnung deutlich mehr Auswahl. Siehe Liste unten.',
     highlights: [
       'Sehr kurze Flugzeit ab Berlin',
       'Kies- & Felsbuchten mit klarem Wasser (Makarska, Split-Umgebung)',
       'Ausflüge: Altstadt Split (Diokletianpalast), Krka-Wasserfälle, Trogir',
+    ],
+    offersMeta: {
+      source: 'CHECK24', date: '24.–31.10.2026',
+      url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&countryId=60&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight',
+      note: 'Live-Momentaufnahme (Stand Juni 2026), 8 Tage / 7 Nächte, Flug + Unterkunft ab Berlin (BER), 2 Erw. + Kinder 8 & 5 J. Preise je Gesamtfamilie inkl. Flug; Verfügbarkeit & Preise ändern sich täglich.',
+    },
+    offers: [
+      { hotel: 'Hotel Adria', region: 'Biograd · Dalmatien', stars: 5, rating: '7,8', ratingWord: 'Gut', reviews: '1.337', price: 3127, lat: 43.94, lng: 15.44, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&countryId=60&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=14693' },
+      { hotel: 'Falkensteiner Club Funimation Borik', region: 'Zadar · Dalmatien', stars: 5, rating: '7,5', ratingWord: 'Gut', reviews: '26', price: 3375, lat: 44.13, lng: 15.21, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&countryId=60&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=12955' },
+      { hotel: 'Hotel Waterman Kaktus', region: 'Supetar (Brač) · Dalmatien', stars: 5, rating: '7,8', ratingWord: 'Gut', reviews: '113', price: 3524, lat: 43.38, lng: 16.55, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&countryId=60&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=4608' },
+      { hotel: 'Hotel Osmine', region: 'Slano · Süddalmatien', stars: 5, rating: '8,0', ratingWord: 'Sehr gut', reviews: '44', price: 3672, lat: 42.78, lng: 17.89, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&countryId=60&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=7842' },
+      { hotel: 'Remisens Hotel Albatros', region: 'Cavtat · Süddalmatien', stars: 5, rating: '7,5', ratingWord: 'Gut', reviews: '37', price: 4105, lat: 42.58, lng: 18.22, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&countryId=60&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=6573' },
     ],
   },
   {
@@ -268,14 +362,30 @@ const destinations = [
     character: 'Günstig, mild, Geheimtipp',
     airport: 'BER → Tirana (TIA)', flightTime: 2.25,
     airTemp: 21, waterTemp: 21, sunHours: 7, rainDays: 5,
-    priceAI: 2500, priceSV: 1700,
+    priceAI: 2370, priceSV: 1700,
     tagline: 'Günstiges, aufstrebendes Mittelmeerziel mit langen Stränden und mildem Herbstklima. Noch wenig auf Pauschal-AI ausgelegt, dafür preiswerte Unterkünfte und entspannte Atmosphäre abseits des Massentourismus.',
     weatherNote: 'Mild und meist sonnig, das Ionische Meer noch angenehm warm. Gegen Ende Oktober vereinzelt Regen.',
-    priceNote: 'Sehr günstig; reine AI-Resorts noch begrenzt, Selbstverpfleger (Apartments) günstig und verbreitet. Transfer ab Tirana ggf. länger.',
+    priceNote: 'Real gefundene AI-Angebote (24.–31.10.) ab ~2.370 € — das günstigste Ziel im Vergleich. Schwerpunkt Durrës/Golem, Transfer ab Tirana ggf. länger. Siehe Liste unten.',
     highlights: [
       'Lange, günstige Strände (Saranda, Ksamil, Durrës)',
       'Preiswerte Unterkünfte & Gastronomie',
       'Ausflüge: Butrint (UNESCO), Blue Eye-Quelle, Stadt Berat',
+    ],
+    offersMeta: {
+      source: 'CHECK24', date: '24.–31.10.2026',
+      url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&countryId=12&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight',
+      note: 'Live-Momentaufnahme (Stand Juni 2026), 8 Tage / 7 Nächte, Flug + Unterkunft ab Berlin (BER), 2 Erw. + Kinder 8 & 5 J. Preise je Gesamtfamilie inkl. Flug; Verfügbarkeit & Preise ändern sich täglich.',
+    },
+    offers: [
+      { hotel: 'Hotel Princ', region: 'Durrës · Albanien', stars: 5, rating: '7,8', ratingWord: 'Gut', reviews: '18', price: 2371, lat: 41.31, lng: 19.45, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&countryId=12&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=1233136' },
+      { hotel: 'Hotel Bleart', region: 'Durrës · Albanien', stars: 5, rating: '8,9', ratingWord: 'Fabelhaft', reviews: '266', price: 2490, lat: 41.3, lng: 19.46, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&countryId=12&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=308833' },
+      { hotel: 'Amfora Hotel & Spa', region: 'Golem · Albanien', stars: 5, rating: '8,4', ratingWord: 'Sehr gut', reviews: '598', price: 2800, lat: 41.25, lng: 19.5, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&countryId=12&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=1864182' },
+      { hotel: 'AMH Hotel Durres', region: 'Durrës · Albanien', stars: 5, rating: '7,5', ratingWord: 'Gut', reviews: '11', price: 2843, lat: 41.312, lng: 19.448, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&countryId=12&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=1259489' },
+      { hotel: 'Bonita Luxury Resort', region: 'Golem · Albanien', stars: 5, rating: '8,0', ratingWord: 'Sehr gut', reviews: '37', price: 2899, lat: 41.248, lng: 19.505, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&countryId=12&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=2042448' },
+      { hotel: 'Sandy Beach Resort', region: 'Golem · Albanien', stars: 5, rating: '8,4', ratingWord: 'Sehr gut', reviews: '74', price: 2984, lat: 41.245, lng: 19.508, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&countryId=12&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=361037' },
+      { hotel: 'SOL Tropikal Durres', region: 'Durrës · Albanien', stars: 5, rating: '7,5', ratingWord: 'Gut', reviews: '12', price: 3439, lat: 41.305, lng: 19.455, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&countryId=12&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=294407' },
+      { hotel: 'Coral Hotel & Resort', region: 'Golem · Albanien', stars: 5, rating: '7,7', ratingWord: 'Gut', reviews: '52', price: 3620, lat: 41.252, lng: 19.498, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&countryId=12&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=240657' },
+      { hotel: 'Meliá Durres Albania', region: 'Durrës · Albanien', stars: 5, rating: '8,0', ratingWord: 'Sehr gut', reviews: '17', price: 3990, lat: 41.308, lng: 19.452, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&countryId=12&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=1860798' },
     ],
   },
 ];
@@ -561,7 +671,7 @@ const CHART = destinations.map((d) => ({
       <div class="barchart" id="barchart"></div>
 
       <div class="callouts">
-        <div class="callout"><b>Günstigste Familie</b><span>Djerba &gt; Albanien &gt; Mallorca</span></div>
+        <div class="callout"><b>Günstigste Familie</b><span>Albanien (~2.370 €) &gt; Mallorca (~2.520 €)</span></div>
         <div class="callout"><b>Wärmstes Wetter</b><span>Ägypten (29°/26°), dann Zypern</span></div>
         <div class="callout"><b>Kürzester Flug</b><span>Kroatien (1,75 h) &amp; Mallorca (2,5 h)</span></div>
         <div class="callout"><b>Wärmstes Meer</b><span>Ägypten (26°) &amp; Zypern (25°)</span></div>
@@ -651,7 +761,7 @@ const CHART = destinations.map((d) => ({
 
   <footer>
     <hr />
-    <p><b>Hinweis:</b> Preise sind realistische Richtwerte (Stand Juni 2026) für die gesamte Familie (2 Erwachsene + Kind 8 J. + Kind 5 J.), 7 Nächte inkl. Flug ab Berlin, im Reisezeitraum der Berliner Herbstferien (19.–31. Oktober 2026). „AI" = All-Inclusive, „Selbstverpfleger" = nur Flug + Unterkunft. Bei der Türkei sind zusätzlich konkrete, live recherchierte Angebote für 24.–31.10.2026 hinterlegt; die Kartenmarker zeigen die ungefähre Resort-Lage. Tatsächliche Preise hängen stark von Hotel, Buchungszeitpunkt und Verfügbarkeit ab. Wetterangaben sind langjährige Klima-Mittelwerte für die zweite Oktoberhälfte, keine Vorhersage. Keine verbindlichen Angebote — vor Buchung bitte aktuell prüfen.</p>
+    <p><b>Hinweis:</b> Preise sind realistische Richtwerte (Stand Juni 2026) für die gesamte Familie (2 Erwachsene + Kind 8 J. + Kind 5 J.), 7 Nächte inkl. Flug ab Berlin, im Reisezeitraum der Berliner Herbstferien (19.–31. Oktober 2026). „AI" = All-Inclusive, „Selbstverpfleger" = nur Flug + Unterkunft. Für alle Ziele sind konkrete, live recherchierte CHECK24-Angebote für 24.–31.10.2026 hinterlegt (mit Hotel-Links und Karte); die Kartenmarker zeigen die ungefähre Resort-Lage. Tatsächliche Preise hängen stark von Hotel, Buchungszeitpunkt und Verfügbarkeit ab. Wetterangaben sind langjährige Klima-Mittelwerte für die zweite Oktoberhälfte, keine Vorhersage. Keine verbindlichen Angebote — vor Buchung bitte aktuell prüfen.</p>
   </footer>
 
   <script type="application/json" id="chartdata" set:html={JSON.stringify(CHART)}></script>
