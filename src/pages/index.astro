@@ -1,0 +1,497 @@
+---
+// =============================================================
+//  Familien-Urlaub Herbstferien — Zielvergleich
+//  Reisezeitraum: Berliner Herbstferien 2026 (19.–31. Oktober)
+//  Familie: 2 Erwachsene + Kind (8 J.) + Kind (5 J.)
+//  Dauer: 7 Nächte, Anreise per Flug ab Berlin (BER)
+//
+//  Preise = realistische Richtwerte (Stand Juni 2026) fuer die
+//  Gesamtfamilie inkl. Flug. AI = All-Inclusive, SV = Selbst-
+//  verpfleger (nur Flug + Unterkunft). Wetter = Klima-Mittelwerte
+//  fuer die zweite Oktoberhälfte. Keine verbindlichen Angebote.
+// =============================================================
+
+const destinations = [
+  {
+    id: 'tuerkei', rank: 1, name: 'Türkei', region: 'Antalya · Türkische Riviera', flag: '🇹🇷',
+    character: 'Bestes Preis-Leistungs-Verhältnis',
+    airport: 'BER → Antalya (AYT)', flightTime: 3.25,
+    airTemp: 25, waterTemp: 23, sunHours: 8, rainDays: 5,
+    priceAI: 2900, priceSV: 2100,
+    tagline: 'Riesige familienfreundliche All-Inclusive-Resorts mit Aquaparks, flach abfallende Sandstrände und im Oktober noch verlässlich warmes Badewetter — alles zum besten Familienpreis im Vergleich.',
+    weatherNote: 'Stabil warm und sonnig, ideal zum Baden. Nur vereinzelt kurze Schauer.',
+    priceNote: 'AI-Hochburg: Familienresorts mit Kinderclub & Aquapark sind hier am günstigsten. Kinder zahlen oft stark reduziert.',
+    highlights: [
+      'Große Familien-Resorts mit Aquapark, Kinderclub & Animation',
+      'Flach abfallende Sandstrände (Lara, Belek, Side)',
+      'Ausflüge: Düden-Wasserfälle, Altstadt Kaleiçi, antikes Aspendos',
+    ],
+  },
+  {
+    id: 'aegypten', rank: 2, name: 'Ägypten', region: 'Hurghada · Rotes Meer', flag: '🇪🇬',
+    character: 'Am wärmsten & am günstigsten',
+    airport: 'BER → Hurghada (HRG)', flightTime: 4.5,
+    airTemp: 29, waterTemp: 26, sunHours: 10, rainDays: 0,
+    priceAI: 2600, priceSV: 1900,
+    tagline: 'Das wärmste und sonnenreichste Ziel im Vergleich, mit dem niedrigsten Familienpreis. Quasi garantiertes Sommerwetter im Herbst und ein warmes, schnorchelfreundliches Rotes Meer direkt vor dem Resort.',
+    weatherNote: 'Sommerlich heiß, praktisch kein Regen, Wasser angenehm warm. Sonnenschutz wichtig.',
+    priceNote: 'Sehr günstige große AI-Resorts. Längerer Flug, Visum nötig. Selbstverpfleger eher selten angeboten.',
+    highlights: [
+      'Schnorcheln & Korallenriffe direkt am Hausriff',
+      'Weitläufige AI-Resorts mit Pool-Landschaften',
+      'Ausflüge: Wüsten-Quad, Delfin-Bucht, Tagestrip Luxor',
+    ],
+  },
+  {
+    id: 'griechenland', rank: 3, name: 'Griechenland', region: 'Kreta · Ägäis', flag: '🇬🇷',
+    character: 'Wärmstes EU-Ziel, gute Mischung',
+    airport: 'BER → Heraklion (HER)', flightTime: 3.25,
+    airTemp: 23, waterTemp: 23, sunHours: 7, rainDays: 5,
+    priceAI: 3300, priceSV: 2300,
+    tagline: 'Innerhalb der EU das Ziel mit dem wärmsten Meer im Herbst. Kreta verbindet familientaugliche Strände und Resorts mit Kultur und einer Landschaft, die mehr bietet als reines Strandleben.',
+    weatherNote: 'Noch mild und meist sonnig, Wasser angenehm warm. Gegen Ende Oktober erste Regentage.',
+    priceNote: 'Gutes AI-Angebot, EU-typisch etwas teurer als Türkei. Selbstverpfleger (Ferienwohnung) gut verfügbar.',
+    highlights: [
+      'Sandstrände & seichte Buchten (z. B. Georgioupolis, Rethymno)',
+      'Ferienwohnungen & familiäre Hotels für Selbstverpfleger',
+      'Ausflüge: Palast von Knossos, Altstadt Chania, Lagune Balos',
+    ],
+  },
+  {
+    id: 'mallorca', rank: 4, name: 'Mallorca', region: 'Balearen · Spanien', flag: '🇪🇸',
+    character: 'Kürzester Flug, sehr familienerprobt',
+    airport: 'BER → Palma (PMI)', flightTime: 2.5,
+    airTemp: 22, waterTemp: 22, sunHours: 6, rainDays: 6,
+    priceAI: 3300, priceSV: 2300,
+    tagline: 'Der kürzeste Flug im Vergleich und die wohl familienerprobteste Infrastruktur Europas. Im Herbst ruhiger und milder — perfekt für entspannte Tage mit kleinen Kindern, mit etwas höherem Regenrisiko.',
+    weatherNote: 'Mild und meist freundlich, Baden noch möglich. In der zweiten Oktoberhälfte steigt die Regenwahrscheinlichkeit.',
+    priceNote: 'Sehr breites Angebot von AI bis Ferienwohnung. Preise EU-Niveau, kurzer Flug spart Reisestress.',
+    highlights: [
+      'Kurze, kinderfreundliche Flugzeit ab Berlin',
+      'Flache Familienstrände (Alcúdia, Playa de Muro)',
+      'Ausflüge: Höhlen von Drach, Bummelzug Sóller, Palma-Altstadt',
+    ],
+  },
+  {
+    id: 'andalusien', rank: 5, name: 'Andalusien', region: 'Costa del Sol · Spanien', flag: '🇪🇸',
+    character: 'Strand plus Kultur & Städte',
+    airport: 'BER → Málaga (AGP)', flightTime: 3.0,
+    airTemp: 23, waterTemp: 21, sunHours: 7, rainDays: 5,
+    priceAI: 3100, priceSV: 2200,
+    tagline: 'Mehr als nur Strand: An der Costa del Sol lassen sich milde Badetage mit Ausflügen in lebendige Städte verbinden. Ein gutes Ziel, wenn die Familie neben dem Pool auch etwas erleben möchte.',
+    weatherNote: 'Mild und sonnig, das Mittelmeer noch lauwarm. Vereinzelt Schauer, insgesamt freundlich.',
+    priceNote: 'Hotels & Apartments in jeder Kategorie. AI etwas seltener als in der Türkei, Selbstverpfleger sehr verbreitet.',
+    highlights: [
+      'Breite Sandstrände & Strandpromenaden (Torremolinos, Fuengirola)',
+      'Familien-Ausflüge: Tivoli World, Bioparc Fuengirola',
+      'Städtetrips: Málaga, Granada (Alhambra), Sevilla',
+    ],
+  },
+  {
+    id: 'portugal', rank: 6, name: 'Portugal', region: 'Algarve · Atlantikküste', flag: '🇵🇹',
+    character: 'Landschaftlich schön, Atlantik kühler',
+    airport: 'BER → Faro (FAO)', flightTime: 3.5,
+    airTemp: 22, waterTemp: 20, sunHours: 7, rainDays: 5,
+    priceAI: 3200, priceSV: 2100,
+    tagline: 'Spektakuläre Felsküsten, goldene Strände und viel Platz. Die Algarve ist landschaftlich das Highlight — der Atlantik ist allerdings kühler als das Mittelmeer und im Oktober eher zum Planschen als für lange Badetage.',
+    weatherNote: 'Mild und überwiegend sonnig an Land. Atlantikwasser spürbar kühler, Wellen — Baden für Kinder begrenzt.',
+    priceNote: 'Stark im Bereich Ferienhäuser & Apartments (Selbstverpfleger günstig). Reine AI-Resorts sind seltener.',
+    highlights: [
+      'Beeindruckende Felsbuchten (Lagos, Praia da Marinha)',
+      'Ferienhäuser mit Pool — ideal für Selbstverpfleger',
+      'Ausflüge: Zoomarine, Wasserpark Slide & Splash, Bootstour Grotten',
+    ],
+  },
+];
+
+// ---- Hilfsfunktionen ---------------------------------------
+const fmt = (n) => n.toLocaleString('de-DE');
+const eur = (n) => '~' + n.toLocaleString('de-DE') + ' €';
+// Wärme-Klasse fuer Farbgebung (Lufttemperatur)
+const warmClass = (t) => (t >= 27 ? 'hot' : t >= 23 ? 'warm' : 'mild');
+
+// Klima-Visualisierung: Balken fuer Luft- & Wassertemperatur + Sonne/Regen
+function weatherSVG(d) {
+  const W = 460, H = 178, padL = 96, padR = 56, padT = 22, padB = 22;
+  const innerW = W - padL - padR;
+  const scaleMax = 32; // Grad-Skala
+  const rows = [
+    { lbl: 'Luft', val: d.airTemp, color: 'var(--temp-air)' },
+    { lbl: 'Wasser', val: d.waterTemp, color: 'var(--temp-water)' },
+  ];
+  const rowH = 30, gap = 20, top = padT + 6;
+  let svg = '<svg class="weather" viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Klima ' + d.name + ' im Oktober">';
+  // Skalenlinien
+  [10, 20, 30].forEach((g) => {
+    const xx = padL + (g / scaleMax) * innerW;
+    svg += '<line class="grid" x1="' + xx + '" y1="' + (top - 6) + '" x2="' + xx + '" y2="' + (top + rows.length * (rowH + gap) - gap + 6) + '"/>';
+    svg += '<text class="ax" x="' + xx + '" y="' + (top + rows.length * (rowH + gap) - gap + 20) + '" text-anchor="middle">' + g + '°</text>';
+  });
+  rows.forEach((r, i) => {
+    const y = top + i * (rowH + gap);
+    const w = Math.max(6, (r.val / scaleMax) * innerW);
+    svg += '<text class="rlbl" x="' + (padL - 12) + '" y="' + (y + rowH / 2 + 4) + '" text-anchor="end">' + r.lbl + '</text>';
+    svg += '<rect x="' + padL + '" y="' + y + '" width="' + innerW + '" height="' + rowH + '" rx="7" fill="#eef3f8"/>';
+    svg += '<rect x="' + padL + '" y="' + y + '" width="' + w + '" height="' + rowH + '" rx="7" fill="' + r.color + '"/>';
+    svg += '<text class="val" x="' + (padL + w + 8) + '" y="' + (y + rowH / 2 + 4) + '">' + r.val + ' °C</text>';
+  });
+  svg += '</svg>';
+  return svg;
+}
+
+// Übersicht: Vergleichsdaten fuer das Balkendiagramm
+const CHART = destinations.map((d) => ({
+  name: d.name,
+  priceAI: d.priceAI, priceSV: d.priceSV,
+  airTemp: d.airTemp, waterTemp: d.waterTemp,
+  sunHours: d.sunHours, rainDays: d.rainDays, flightTime: d.flightTime,
+}));
+---
+
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Familien-Urlaub Herbstferien — Zielvergleich</title>
+  <style is:inline>
+    :root {
+      --ink: #16212e; --muted: #5d6e7e; --line: #e4eaf0; --bg: #f5f8fb;
+      --card: #ffffff; --nav: #122230; --nav-ink: #cfe0ec; --accent: #e8590c;
+      --accent2: #1f7a8c;
+      --temp-air: #e8590c; --temp-water: #1f7a8c;
+      --hot: #e0431f; --warm: #e8990c; --mild: #1f9d8f;
+      --ai: #e8590c; --sv: #1f7a8c;
+      --shadow: 0 1px 3px rgba(20,40,60,.07), 0 8px 28px rgba(20,40,60,.06);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; background: var(--bg); color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.5;
+    }
+    /* ---- Navbar ---- */
+    header.nav { position: sticky; top: 0; z-index: 50; background: var(--nav); box-shadow: 0 2px 14px rgba(0,0,0,.18); }
+    .nav-inner { max-width: 1080px; margin: 0 auto; padding: 0 16px; }
+    .brand { display: flex; align-items: center; gap: 10px; padding: 12px 0 8px; }
+    .brand .mark { font-size: 20px; }
+    .brand h1 { font-size: 16px; margin: 0; color: #fff; font-weight: 700; letter-spacing: .2px; }
+    .brand span { color: #7fa3bd; font-size: 12.5px; margin-left: 2px; }
+    .tabs { display: flex; gap: 6px; overflow: visible; padding-bottom: 10px; align-items: center; }
+    .details-wrap { position: relative; }
+    .menu {
+      position: absolute; top: calc(100% + 6px); left: 0; background: #fff;
+      border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 12px 34px rgba(10,25,40,.24);
+      padding: 6px; min-width: 260px; max-height: 72vh; overflow-y: auto; display: none; z-index: 60;
+    }
+    .menu.open { display: block; }
+    .menu-item {
+      display: flex; align-items: center; gap: 9px; width: 100%; text-align: left;
+      background: transparent; border: none; border-radius: 8px; padding: 9px 12px;
+      font-size: 14px; color: var(--ink); cursor: pointer;
+    }
+    .menu-item:hover { background: #f1f6fb; }
+    .menu-item.active { background: var(--accent); color: #fff; }
+    .menu-item .rk { opacity: .55; font-variant-numeric: tabular-nums; min-width: 18px; }
+    .menu-item.active .rk { opacity: .85; }
+    .burger { font-size: 15px; line-height: 1; margin-right: 2px; }
+    #det-label { opacity: .9; font-weight: 600; }
+    .navbtn {
+      flex: 0 0 auto; background: transparent; color: var(--nav-ink);
+      border: 1px solid #2a3f52; border-radius: 999px; padding: 6px 13px;
+      font-size: 13px; cursor: pointer; white-space: nowrap; transition: all .15s;
+    }
+    .navbtn:hover { background: #1c3043; color: #fff; }
+    .navbtn.active { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 600; }
+    /* ---- Layout ---- */
+    main { max-width: 1080px; margin: 0 auto; padding: 26px 16px 60px; }
+    .loc-section { display: none; animation: fade .25s ease; }
+    .loc-section.active { display: block; }
+    @keyframes fade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+    /* ---- Hero ---- */
+    .hero {
+      border-radius: 16px; padding: 26px 26px 24px; color: #fff; position: relative;
+      overflow: hidden; box-shadow: var(--shadow);
+      background: linear-gradient(135deg, #163a4d 0%, #1f7a8c 55%, #2aa1a8 100%);
+    }
+    .hero::after {
+      content: ""; position: absolute; right: -40px; bottom: -60px; width: 260px; height: 260px;
+      background: radial-gradient(circle, rgba(255,255,255,.14), transparent 70%);
+    }
+    .hero .rank-badge {
+      display: inline-block; background: rgba(255,255,255,.16); border: 1px solid rgba(255,255,255,.3);
+      border-radius: 999px; padding: 3px 12px; font-size: 12.5px; font-weight: 600; margin-bottom: 12px;
+    }
+    .hero h2 { margin: 0 0 4px; font-size: 30px; letter-spacing: -.5px; }
+    .hero .region { font-size: 14px; opacity: .9; margin-bottom: 14px; }
+    .hero .tagline { font-size: 15px; max-width: 680px; opacity: .96; position: relative; z-index: 1; }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; position: relative; z-index: 1; }
+    .chip { background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.22); border-radius: 10px; padding: 7px 12px; font-size: 12.5px; }
+    .chip b { display: block; font-size: 11px; font-weight: 600; opacity: .8; margin-bottom: 1px; text-transform: uppercase; letter-spacing: .4px; }
+    /* ---- Sektionstitel ---- */
+    .sec-title { font-size: 14px; text-transform: uppercase; letter-spacing: .8px; color: var(--muted); margin: 30px 2px 14px; font-weight: 700; }
+    /* ---- Preis-Karten ---- */
+    .price-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; }
+    .pcard { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 18px 18px 16px; box-shadow: var(--shadow); position: relative; }
+    .pcard.ai { border-top: 4px solid var(--ai); }
+    .pcard.sv { border-top: 4px solid var(--sv); }
+    .pcard .ptype { font-size: 12px; text-transform: uppercase; letter-spacing: .5px; color: var(--muted); font-weight: 700; }
+    .pcard .pbig { font-size: 32px; font-weight: 800; letter-spacing: -1px; margin: 4px 0 2px; font-variant-numeric: tabular-nums; }
+    .pcard.ai .pbig { color: var(--ai); }
+    .pcard.sv .pbig { color: var(--sv); }
+    .pcard .punit { font-size: 12.5px; color: var(--muted); }
+    .pcard .pdesc { font-size: 13px; color: #34495a; margin-top: 10px; line-height: 1.45; }
+    .pcard .pp { font-size: 12px; color: var(--muted); margin-top: 8px; font-variant-numeric: tabular-nums; }
+    .pricehint { font-size: 13px; color: #34495a; background: #f1f6fb; border-radius: 10px; padding: 12px 14px; margin-top: 14px; }
+    /* ---- Wetter ---- */
+    .weather-wrap { display: grid; grid-template-columns: 1.2fr 1fr; gap: 18px; align-items: stretch; }
+    .wcard { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 16px; box-shadow: var(--shadow); }
+    svg.weather { width: 100%; height: auto; display: block; }
+    svg.weather .grid { stroke: #eef2f6; stroke-width: 1; }
+    svg.weather .ax { fill: #93a3b2; font-size: 10.5px; font-family: inherit; }
+    svg.weather .rlbl { fill: var(--muted); font-size: 12.5px; font-weight: 600; font-family: inherit; }
+    svg.weather .val { fill: var(--ink); font-size: 12.5px; font-weight: 700; font-family: inherit; }
+    .wstats { display: flex; flex-direction: column; gap: 10px; justify-content: center; }
+    .wstat { display: flex; align-items: center; gap: 12px; }
+    .wstat .ic { font-size: 22px; width: 30px; text-align: center; }
+    .wstat b { font-size: 18px; font-variant-numeric: tabular-nums; }
+    .wstat span { color: var(--muted); font-size: 12.5px; }
+    .wnote { font-size: 13px; color: #34495a; background: #f1f6fb; border-radius: 10px; padding: 12px 14px; margin-top: 14px; }
+    /* ---- Highlights ---- */
+    .hl { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+    .hl li { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 11px 14px; font-size: 14px; color: #34495a; display: flex; gap: 10px; box-shadow: var(--shadow); }
+    .hl li::before { content: "›"; color: var(--accent); font-weight: 800; }
+    /* ---- Übersicht ---- */
+    .intro { font-size: 15.5px; color: #34495a; max-width: 740px; }
+    table.rank { width: 100%; border-collapse: collapse; margin-top: 16px; font-size: 13.5px; background: var(--card); border-radius: 12px; overflow: hidden; box-shadow: var(--shadow); }
+    table.rank th, table.rank td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--line); }
+    table.rank th { background: #eef3f8; font-size: 12px; text-transform: uppercase; letter-spacing: .5px; color: var(--muted); }
+    table.rank tr:last-child td { border-bottom: none; }
+    table.rank tr { cursor: pointer; transition: background .12s; }
+    table.rank tbody tr:hover { background: #f3f8fc; }
+    table.rank td.r { font-weight: 700; color: var(--accent); }
+    table.rank td.price { font-variant-numeric: tabular-nums; font-weight: 600; }
+    .barchart { margin-top: 26px; }
+    .metric-btns { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0 6px; }
+    .mbtn { background: var(--card); border: 1px solid var(--line); color: #34495a; border-radius: 999px; padding: 6px 13px; font-size: 12.5px; cursor: pointer; transition: all .15s; }
+    .mbtn:hover { border-color: var(--accent2); color: var(--accent2); }
+    .mbtn.active { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 600; }
+    .metric-hint { font-size: 12.5px; color: var(--muted); margin: 0 2px 14px; min-height: 16px; }
+    .bar-row { display: grid; grid-template-columns: 150px 1fr 92px; align-items: center; gap: 10px; margin-bottom: 8px; }
+    .bar-row .lbl { font-size: 13px; text-align: right; color: #34495a; }
+    .bar-track { background: #e8eef4; border-radius: 6px; height: 18px; overflow: hidden; }
+    .bar-fill { height: 100%; border-radius: 6px; background: linear-gradient(90deg, #1f7a8c, #e8590c); }
+    .bar-row .val { font-size: 12.5px; font-variant-numeric: tabular-nums; color: var(--muted); }
+    .callouts { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 14px; margin-top: 24px; }
+    .callout { background: var(--card); border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 10px; padding: 14px 16px; box-shadow: var(--shadow); }
+    .callout b { display: block; font-size: 12px; text-transform: uppercase; letter-spacing: .5px; color: var(--accent); margin-bottom: 4px; }
+    .callout span { font-size: 14px; color: #34495a; }
+    footer { max-width: 1080px; margin: 0 auto; padding: 0 16px 50px; color: var(--muted); font-size: 12.5px; }
+    footer hr { border: none; border-top: 1px solid var(--line); margin: 0 0 16px; }
+    @media (max-width: 640px) {
+      .hero h2 { font-size: 24px; }
+      .weather-wrap { grid-template-columns: 1fr; }
+      .bar-row { grid-template-columns: 104px 1fr 84px; }
+      .bar-row .lbl { font-size: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="nav-inner">
+      <div class="brand">
+        <span class="mark">🏖️</span>
+        <h1>Herbstferien-Urlaub <span>· 6 Familienziele im Vergleich</span></h1>
+      </div>
+      <nav class="tabs" id="tabs">
+        <button class="navbtn active" id="nav-overview" onclick="showOverview()">Übersicht</button>
+        <div class="details-wrap">
+          <button class="navbtn" id="nav-details" onclick="toggleMenu(event)" aria-haspopup="true"><span class="burger">☰</span> Ziele<span id="det-label"></span></button>
+          <div class="menu" id="region-menu" role="menu">
+            {destinations.map((d) => (
+              <button class="menu-item" data-id={d.id} data-name={d.name} onclick={`selectRegion('${d.id}')`} role="menuitem">
+                <span class="rk">{d.rank}</span>{d.flag} {d.name}
+              </button>
+            ))}
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Übersicht -->
+    <section class="loc-section active" id="sec-overview">
+      <div class="hero" style="background: linear-gradient(135deg,#1a2f3d 0%,#e8590c 120%);">
+        <span class="rank-badge">Berliner Herbstferien · 19.–31. Oktober 2026</span>
+        <h2>Wohin in den Herbstferien?</h2>
+        <div class="region">7 Nächte · 2 Erwachsene + Kind (8 J.) + Kind (5 J.) · Flug ab Berlin (BER)</div>
+        <p class="tagline">Sechs sonnensichere Familienziele im direkten Vergleich — Gesamtpreis für die Familie als All-Inclusive und als Selbstverpfleger (nur Flug + Unterkunft), dazu das erwartbare Wetter im Oktober. Oben in der Leiste durch die Ziele schalten oder in der Tabelle ein Ziel anklicken.</p>
+      </div>
+
+      <div class="sec-title">Ranking &amp; Preisüberblick</div>
+      <table class="rank">
+        <thead>
+          <tr><th>#</th><th>Ziel</th><th>Region</th><th>All&nbsp;Incl.</th><th>Selbstverpfl.</th><th>Wetter (Luft/Wasser)</th></tr>
+        </thead>
+        <tbody>
+          {destinations.map((d) => (
+            <tr onclick={`showLoc('${d.id}')`}>
+              <td class="r">{d.rank}</td>
+              <td><b>{d.flag} {d.name}</b></td>
+              <td>{d.region}</td>
+              <td class="price">{eur(d.priceAI)}</td>
+              <td class="price">{eur(d.priceSV)}</td>
+              <td>{d.airTemp}° / {d.waterTemp}°</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+
+      <div class="sec-title">Ziele vergleichen</div>
+      <div class="metric-btns" id="metric-btns">
+        <button class="mbtn active" data-metric="priceAI">Preis All-Inclusive</button>
+        <button class="mbtn" data-metric="priceSV">Preis Selbstverpfleger</button>
+        <button class="mbtn" data-metric="airTemp">Lufttemperatur</button>
+        <button class="mbtn" data-metric="waterTemp">Wassertemperatur</button>
+        <button class="mbtn" data-metric="sunHours">Sonnenstunden</button>
+        <button class="mbtn" data-metric="rainDays">Regentage</button>
+        <button class="mbtn" data-metric="flightTime">Flugzeit</button>
+      </div>
+      <div class="metric-hint" id="metric-hint"></div>
+      <div class="barchart" id="barchart"></div>
+
+      <div class="callouts">
+        <div class="callout"><b>Günstigste Familie</b><span>Ägypten &gt; Türkei &gt; Andalusien</span></div>
+        <div class="callout"><b>Wärmstes Wetter</b><span>Ägypten (29°/26°), dann Türkei</span></div>
+        <div class="callout"><b>Kürzester Flug</b><span>Mallorca (2,5 h) &amp; Andalusien (3 h)</span></div>
+        <div class="callout"><b>Wärmstes Meer in der EU</b><span>Kreta &amp; Mallorca (~22–23°)</span></div>
+      </div>
+    </section>
+
+    <!-- Ziele -->
+    {destinations.map((d) => (
+      <section class="loc-section" id={`sec-${d.id}`}>
+        <div class="hero">
+          <span class="rank-badge">Rang {d.rank} · {d.character}</span>
+          <h2>{d.flag} {d.name}</h2>
+          <div class="region">{d.region}</div>
+          <p class="tagline">{d.tagline}</p>
+          <div class="chips">
+            <div class="chip"><b>All-Inclusive</b>{eur(d.priceAI)} / Familie</div>
+            <div class="chip"><b>Selbstverpfleger</b>{eur(d.priceSV)} / Familie</div>
+            <div class="chip"><b>Flug ab Berlin</b>{d.airport} · {('' + d.flightTime).replace('.', ',')} h</div>
+            <div class="chip"><b>Wetter Okt.</b>{d.airTemp}° Luft · {d.waterTemp}° Wasser</div>
+          </div>
+        </div>
+
+        <div class="sec-title">Preis für 7 Nächte · ganze Familie inkl. Flug</div>
+        <div class="price-grid">
+          <div class="pcard ai">
+            <div class="ptype">All-Inclusive</div>
+            <div class="pbig">{eur(d.priceAI)}</div>
+            <div class="punit">für 2 Erw. + 2 Kinder · inkl. Flug & Verpflegung</div>
+            <div class="pp">entspricht ~{fmt(Math.round(d.priceAI / 7))} € pro Nacht</div>
+          </div>
+          <div class="pcard sv">
+            <div class="ptype">Selbstverpfleger</div>
+            <div class="pbig">{eur(d.priceSV)}</div>
+            <div class="punit">nur Flug + Unterkunft · Verpflegung selbst</div>
+            <div class="pp">entspricht ~{fmt(Math.round(d.priceSV / 7))} € pro Nacht · Ersparnis ~{eur(d.priceAI - d.priceSV)}</div>
+          </div>
+        </div>
+        <div class="pricehint">{d.priceNote}</div>
+
+        <div class="sec-title">Erwartbares Wetter · zweite Oktoberhälfte</div>
+        <div class="weather-wrap">
+          <div class="wcard"><Fragment set:html={weatherSVG(d)} /></div>
+          <div class="wcard wstats">
+            <div class="wstat"><span class="ic">🌡️</span><div><b>{d.airTemp} °C</b> <span>Luft tagsüber</span></div></div>
+            <div class="wstat"><span class="ic">🌊</span><div><b>{d.waterTemp} °C</b> <span>Wassertemperatur</span></div></div>
+            <div class="wstat"><span class="ic">☀️</span><div><b>{d.sunHours} h</b> <span>Sonne pro Tag</span></div></div>
+            <div class="wstat"><span class="ic">🌧️</span><div><b>{d.rainDays}</b> <span>Regentage pro Woche (ca.)</span></div></div>
+          </div>
+        </div>
+        <div class="wnote">{d.weatherNote}</div>
+
+        <div class="sec-title">Gut für Familien</div>
+        <ul class="hl">
+          {d.highlights.map((h) => (<li>{h}</li>))}
+        </ul>
+      </section>
+    ))}
+  </main>
+
+  <footer>
+    <hr />
+    <p><b>Hinweis:</b> Preise sind realistische Richtwerte (Stand Juni 2026) für die gesamte Familie (2 Erwachsene + Kind 8 J. + Kind 5 J.), 7 Nächte inkl. Flug ab Berlin, im Reisezeitraum der Berliner Herbstferien (19.–31. Oktober 2026). „AI" = All-Inclusive, „Selbstverpfleger" = nur Flug + Unterkunft. Tatsächliche Preise hängen stark von Hotel, Buchungszeitpunkt und Verfügbarkeit ab. Wetterangaben sind langjährige Klima-Mittelwerte für die zweite Oktoberhälfte, keine Vorhersage. Keine verbindlichen Angebote — vor Buchung bitte aktuell prüfen.</p>
+  </footer>
+
+  <script type="application/json" id="chartdata" set:html={JSON.stringify(CHART)}></script>
+  <script is:inline>
+    function setSection(id) {
+      document.querySelectorAll('.loc-section').forEach((s) => s.classList.remove('active'));
+      var sec = document.getElementById('sec-' + id);
+      if (sec) sec.classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    function closeMenu() { var m = document.getElementById('region-menu'); if (m) m.classList.remove('open'); }
+    function toggleMenu(e) { if (e) e.stopPropagation(); var m = document.getElementById('region-menu'); if (m) m.classList.toggle('open'); }
+    function showOverview() {
+      setSection('overview');
+      document.getElementById('nav-details').classList.remove('active');
+      document.getElementById('nav-overview').classList.add('active');
+      var lbl = document.getElementById('det-label'); if (lbl) lbl.textContent = '';
+      document.querySelectorAll('.menu-item').forEach((b) => b.classList.remove('active'));
+      closeMenu();
+    }
+    function selectRegion(id) {
+      var item = document.querySelector('.menu-item[data-id="' + id + '"]');
+      setSection(id);
+      document.getElementById('nav-overview').classList.remove('active');
+      document.getElementById('nav-details').classList.add('active');
+      var lbl = document.getElementById('det-label'); if (lbl) lbl.textContent = item ? ' · ' + item.getAttribute('data-name') : '';
+      document.querySelectorAll('.menu-item').forEach((b) => b.classList.toggle('active', b.getAttribute('data-id') === id));
+      closeMenu();
+    }
+    function showLoc(id) { if (id === 'overview') showOverview(); else selectRegion(id); }
+    document.addEventListener('click', function (e) {
+      var w = document.querySelector('.details-wrap');
+      if (w && !w.contains(e.target)) closeMenu();
+    });
+    /* --- Umschaltbares Vergleichs-Diagramm --- */
+    var CHART_DATA = JSON.parse(document.getElementById('chartdata').textContent);
+    function nf(n) { return n.toLocaleString('de-DE'); }
+    var METRICS = {
+      priceAI:   { lower: true,  hint: 'All-Inclusive-Gesamtpreis für die Familie (7 Nächte, inkl. Flug) — weniger = günstiger', fmt: function (v) { return '~' + nf(v) + ' €'; } },
+      priceSV:   { lower: true,  hint: 'Selbstverpfleger: nur Flug + Unterkunft für die Familie — weniger = günstiger',          fmt: function (v) { return '~' + nf(v) + ' €'; } },
+      airTemp:   { lower: false, hint: 'Durchschnittliche Lufttemperatur tagsüber in der zweiten Oktoberhälfte',                  fmt: function (v) { return v + ' °C'; } },
+      waterTemp: { lower: false, hint: 'Durchschnittliche Wassertemperatur im Oktober',                                          fmt: function (v) { return v + ' °C'; } },
+      sunHours:  { lower: false, hint: 'Sonnenstunden pro Tag (Richtwert Oktober)',                                              fmt: function (v) { return v + ' h'; } },
+      rainDays:  { lower: true,  hint: 'Regentage pro Woche (ca.) — weniger = trockener',                                        fmt: function (v) { return v === 0 ? 'fast 0' : v + ' Tage'; } },
+      flightTime:{ lower: true,  hint: 'Reine Flugzeit ab Berlin — weniger = kürzer',                                            fmt: function (v) { return ('' + v).replace('.', ',') + ' h'; } }
+    };
+    function renderChart(key) {
+      var m = METRICS[key];
+      var rows = CHART_DATA.slice().sort(function (a, b) { return m.lower ? a[key] - b[key] : b[key] - a[key]; });
+      var maxv = Math.max.apply(null, CHART_DATA.map(function (d) { return d[key]; }));
+      var html = rows.map(function (d) {
+        var w = Math.max(4, Math.round((d[key] / maxv) * 100));
+        return '<div class="bar-row"><div class="lbl">' + d.name + '</div>' +
+               '<div class="bar-track"><div class="bar-fill" style="width:' + w + '%"></div></div>' +
+               '<div class="val">' + m.fmt(d[key]) + '</div></div>';
+      }).join('');
+      document.getElementById('barchart').innerHTML = html;
+      document.getElementById('metric-hint').textContent = m.hint;
+      document.querySelectorAll('.mbtn').forEach(function (b) {
+        b.classList.toggle('active', b.getAttribute('data-metric') === key);
+      });
+    }
+    document.querySelectorAll('.mbtn').forEach(function (b) {
+      b.addEventListener('click', function () { renderChart(b.getAttribute('data-metric')); });
+    });
+    renderChart('priceAI');
+  </script>
+</body>
+</html>

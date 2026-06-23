@@ -1,0 +1,14 @@
+{
+  "name": "urlaubsplanung-herbstferien",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Vergleich von 6 Familien-Reisezielen fuer die Berliner Herbstferien als Astro-Website",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "astro": "^5.6.1"
+  }
+}
