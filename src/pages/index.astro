@@ -47,17 +47,34 @@ const destinations = [
   },
   {
     id: 'aegypten', rank: 2, name: 'Ägypten', region: 'Hurghada · Rotes Meer', flag: '🇪🇬',
-    character: 'Am wärmsten & am günstigsten',
+    character: 'Am wärmsten · große Familienresorts',
     airport: 'BER → Hurghada (HRG)', flightTime: 4.5,
     airTemp: 29, waterTemp: 26, sunHours: 10, rainDays: 0,
-    priceAI: 2600, priceSV: 1900,
-    tagline: 'Das wärmste und sonnenreichste Ziel im Vergleich, mit dem niedrigsten Familienpreis. Quasi garantiertes Sommerwetter im Herbst und ein warmes, schnorchelfreundliches Rotes Meer direkt vor dem Resort.',
+    priceAI: 3170, priceSV: 1900,
+    tagline: 'Das wärmste und sonnenreichste Ziel im Vergleich: quasi garantiertes Sommerwetter im Herbst und ein warmes, schnorchelfreundliches Rotes Meer direkt vor dem Resort. Große Familienresorts mit Aquaparks zu fairen Preisen.',
     weatherNote: 'Sommerlich heiß, praktisch kein Regen, Wasser angenehm warm. Sonnenschutz wichtig.',
-    priceNote: 'Sehr günstige große AI-Resorts. Längerer Flug, Visum nötig. Selbstverpfleger eher selten angeboten.',
+    priceNote: 'Real gefundene AI-Angebote (24.–31.10.) ab ~3.170 € (Hurghada/Marsa Alam/Makadi) bis ~4.280 € — siehe Liste unten. Längerer Flug, Visum nötig.',
     highlights: [
       'Schnorcheln & Korallenriffe direkt am Hausriff',
       'Weitläufige AI-Resorts mit Pool-Landschaften',
       'Ausflüge: Wüsten-Quad, Delfin-Bucht, Tagestrip Luxor',
+    ],
+    offersMeta: {
+      source: 'CHECK24', date: '24.–31.10.2026',
+      url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&countryId=11&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight',
+      note: 'Live-Momentaufnahme (Stand Juni 2026), 8 Tage / 7 Nächte, Flug + Unterkunft ab Berlin (BER), 2 Erw. + Kinder 8 & 5 J. Preise je Gesamtfamilie inkl. Flug; Verfügbarkeit & Preise ändern sich täglich.',
+    },
+    offers: [
+      { hotel: 'Lazuli Hotel Marsa Alam', region: 'Marsa Alam · Rotes Meer', stars: 5, rating: '8,2', ratingWord: 'Sehr gut', reviews: '550', price: 3166, lat: 25.4, lng: 34.62, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&countryId=11&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=1601704' },
+      { hotel: 'Menaville Safaga', region: 'Safaga · Rotes Meer', stars: 5, rating: '7,8', ratingWord: 'Gut', reviews: '1.704', price: 3436, lat: 26.73, lng: 33.94, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&countryId=11&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=483' },
+      { hotel: 'Arabia Azur Resort', region: 'Hurghada · Rotes Meer', stars: 5, rating: '8,4', ratingWord: 'Sehr gut', reviews: '3.081', price: 3684, lat: 27.255, lng: 33.82, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&countryId=11&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=18' },
+      { hotel: 'Giftun Azur Resort', region: 'Hurghada · Rotes Meer', stars: 5, rating: '8,2', ratingWord: 'Sehr gut', reviews: '2.404', price: 3720, lat: 27.235, lng: 33.835, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&countryId=11&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=736' },
+      { hotel: 'Golden Beach Resort', region: 'Hurghada · Rotes Meer', stars: 5, rating: '8,2', ratingWord: 'Sehr gut', reviews: '2.585', price: 3824, lat: 27.19, lng: 33.83, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&countryId=11&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=8166' },
+      { hotel: 'Arabella Azur Resort', region: 'Hurghada · Rotes Meer', stars: 5, rating: '8,6', ratingWord: 'Fabelhaft', reviews: '2.129', price: 3906, lat: 27.245, lng: 33.828, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&countryId=11&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=737' },
+      { hotel: 'Jaz Solaya', region: 'Marsa Alam · Rotes Meer', stars: 5, rating: '8,9', ratingWord: 'Fabelhaft', reviews: '846', price: 4146, lat: 25.18, lng: 34.8, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&countryId=11&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=14497' },
+      { hotel: 'Jaz Makadi Oasis Resort', region: 'Makadi Bay · Rotes Meer', stars: 5, rating: '9,1', ratingWord: 'Ausgezeichnet', reviews: '826', price: 4182, lat: 26.98, lng: 33.89, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&countryId=11&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=57512' },
+      { hotel: 'Desert Rose', region: 'Hurghada · Rotes Meer', stars: 5, rating: '8,6', ratingWord: 'Fabelhaft', reviews: '3.487', price: 4254, lat: 27.3, lng: 33.79, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&countryId=11&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=9851' },
+      { hotel: 'Cleopatra Luxury Resort Makadi Bay', region: 'Makadi Bay · Rotes Meer', stars: 5, rating: '8,7', ratingWord: 'Fabelhaft', reviews: '2.711', price: 4275, lat: 26.99, lng: 33.895, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&countryId=11&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=20660' },
     ],
   },
   {
@@ -65,14 +82,31 @@ const destinations = [
     character: 'Wärmstes EU-Ziel, gute Mischung',
     airport: 'BER → Heraklion (HER)', flightTime: 3.25,
     airTemp: 23, waterTemp: 23, sunHours: 7, rainDays: 5,
-    priceAI: 3300, priceSV: 2300,
+    priceAI: 3980, priceSV: 2300,
     tagline: 'Innerhalb der EU das Ziel mit dem wärmsten Meer im Herbst. Kreta verbindet familientaugliche Strände und Resorts mit Kultur und einer Landschaft, die mehr bietet als reines Strandleben.',
     weatherNote: 'Noch mild und meist sonnig, Wasser angenehm warm. Gegen Ende Oktober erste Regentage.',
-    priceNote: 'Gutes AI-Angebot, EU-typisch etwas teurer als Türkei. Selbstverpfleger (Ferienwohnung) gut verfügbar.',
+    priceNote: 'Real gefundene AI-Angebote (24.–31.10.) ab ~3.980 € bis ~4.600 € — deutlich teurer als die Türkei. Viele Ferienwohnungen für Selbstverpfleger. Siehe Liste unten.',
     highlights: [
       'Sandstrände & seichte Buchten (z. B. Georgioupolis, Rethymno)',
       'Ferienwohnungen & familiäre Hotels für Selbstverpfleger',
       'Ausflüge: Palast von Knossos, Altstadt Chania, Lagune Balos',
+    ],
+    offersMeta: {
+      source: 'CHECK24', date: '24.–31.10.2026',
+      url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&areaId=603&ds=r&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight',
+      note: 'Live-Momentaufnahme (Stand Juni 2026), 8 Tage / 7 Nächte, Flug + Unterkunft ab Berlin (BER), 2 Erw. + Kinder 8 & 5 J. Preise je Gesamtfamilie inkl. Flug; Verfügbarkeit & Preise ändern sich täglich.',
+    },
+    offers: [
+      { hotel: 'Royal Imperial Belvedere All Inclusive Resort', region: 'Chersonissos · Kreta', stars: 5, rating: '8,0', ratingWord: 'Sehr gut', reviews: '325', price: 3984, lat: 35.318, lng: 25.385, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&areaId=603&ds=r&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=1601639' },
+      { hotel: 'SOL Marina Beach Crete', region: 'Gouves · Kreta', stars: 5, rating: '8,4', ratingWord: 'Sehr gut', reviews: '824', price: 4007, lat: 35.323, lng: 25.285, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&areaId=603&ds=r&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=121439' },
+      { hotel: 'allsun Hotel Dolphin Bay', region: 'Agia Pelagia · Kreta', stars: 5, rating: '7,8', ratingWord: 'Gut', reviews: '527', price: 4013, lat: 35.418, lng: 25.018, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&areaId=603&ds=r&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=3770' },
+      { hotel: 'Cactus Beach Hotel & Bungalows', region: 'Stalis · Kreta', stars: 5, rating: '8,0', ratingWord: 'Sehr gut', reviews: '1.318', price: 4152, lat: 35.3, lng: 25.43, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&areaId=603&ds=r&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=3870' },
+      { hotel: 'allsun Hotel Zorbas Village', region: 'Analipsi · Kreta', stars: 5, rating: '8,2', ratingWord: 'Sehr gut', reviews: '475', price: 4233, lat: 35.33, lng: 25.45, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&areaId=603&ds=r&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=85' },
+      { hotel: 'Magda Hotel', region: 'Stalis · Kreta', stars: 5, rating: '8,4', ratingWord: 'Sehr gut', reviews: '188', price: 4267, lat: 35.302, lng: 25.42, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&areaId=603&ds=r&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=4147' },
+      { hotel: 'allsun Hotel Malia Beach', region: 'Malia · Kreta', stars: 5, rating: '8,2', ratingWord: 'Sehr gut', reviews: '1.382', price: 4446, lat: 35.293, lng: 25.46, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&areaId=603&ds=r&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=169' },
+      { hotel: 'Calimera Sirens Beach', region: 'Malia · Kreta', stars: 5, rating: '8,6', ratingWord: 'Fabelhaft', reviews: '436', price: 4488, lat: 35.295, lng: 25.47, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&areaId=603&ds=r&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=3987' },
+      { hotel: 'Petra Mare Hotel', region: 'Ierapetra · Kreta', stars: 5, rating: '8,9', ratingWord: 'Fabelhaft', reviews: '687', price: 4510, lat: 35.012, lng: 25.742, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&areaId=603&ds=r&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=3625' },
+      { hotel: 'Iberostar Waves Creta Panorama & Mare', region: 'Panormos · Rethymno', stars: 5, rating: '8,6', ratingWord: 'Fabelhaft', reviews: '973', price: 4608, lat: 35.398, lng: 24.7, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&areaId=603&ds=r&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=29707' },
     ],
   },
   {
@@ -80,14 +114,31 @@ const destinations = [
     character: 'Kürzester Flug, sehr familienerprobt',
     airport: 'BER → Palma (PMI)', flightTime: 2.5,
     airTemp: 22, waterTemp: 22, sunHours: 6, rainDays: 6,
-    priceAI: 3300, priceSV: 2300,
+    priceAI: 2520, priceSV: 2300,
     tagline: 'Der kürzeste Flug im Vergleich und die wohl familienerprobteste Infrastruktur Europas. Im Herbst ruhiger und milder — perfekt für entspannte Tage mit kleinen Kindern, mit etwas höherem Regenrisiko.',
     weatherNote: 'Mild und meist freundlich, Baden noch möglich. In der zweiten Oktoberhälfte steigt die Regenwahrscheinlichkeit.',
-    priceNote: 'Sehr breites Angebot von AI bis Ferienwohnung. Preise EU-Niveau, kurzer Flug spart Reisestress.',
+    priceNote: 'Real gefundene AI-Angebote (24.–31.10.) ab ~2.520 € bis ~3.840 € — günstiger als gedacht und kurzer Flug. Sehr breites Familienangebot. Siehe Liste unten.',
     highlights: [
       'Kurze, kinderfreundliche Flugzeit ab Berlin',
       'Flache Familienstrände (Alcúdia, Playa de Muro)',
       'Ausflüge: Höhlen von Drach, Bummelzug Sóller, Palma-Altstadt',
+    ],
+    offersMeta: {
+      source: 'CHECK24', date: '24.–31.10.2026',
+      url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&areaId=546&ds=r&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight',
+      note: 'Live-Momentaufnahme (Stand Juni 2026), 8 Tage / 7 Nächte, Flug + Unterkunft ab Berlin (BER), 2 Erw. + Kinder 8 & 5 J. Preise je Gesamtfamilie inkl. Flug; Verfügbarkeit & Preise ändern sich täglich.',
+    },
+    offers: [
+      { hotel: 'Gavimar Cala Gran Costa del Sur', region: 'Cala d\'Or · Mallorca', stars: 5, rating: '7,1', ratingWord: 'Gut', reviews: '1.310', price: 2520, lat: 39.375, lng: 3.23, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&areaId=546&ds=r&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=1347' },
+      { hotel: 'Tropicana Hotel', region: 'Cala Millor · Mallorca', stars: 5, rating: '7,7', ratingWord: 'Gut', reviews: '197', price: 2572, lat: 39.595, lng: 3.385, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&areaId=546&ds=r&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=687' },
+      { hotel: 'Playa Dorada', region: 'Cala Ratjada · Mallorca', stars: 5, rating: '7,7', ratingWord: 'Gut', reviews: '832', price: 2932, lat: 39.713, lng: 3.463, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&areaId=546&ds=r&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=1392' },
+      { hotel: 'BQ Alcudia Sun Village', region: 'Playa de Muro · Mallorca', stars: 5, rating: '8,2', ratingWord: 'Sehr gut', reviews: '250', price: 3148, lat: 39.79, lng: 3.118, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&areaId=546&ds=r&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=1443' },
+      { hotel: 'Caprice Vell Mari Hotel & Resort', region: 'Can Picafort · Mallorca', stars: 5, rating: '7,5', ratingWord: 'Gut', reviews: '339', price: 3248, lat: 39.766, lng: 3.158, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&areaId=546&ds=r&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=10077' },
+      { hotel: 'Hipotels Mediterráneo Club', region: 'Sa Coma · Mallorca', stars: 5, rating: '8,6', ratingWord: 'Fabelhaft', reviews: '2.026', price: 3396, lat: 39.585, lng: 3.378, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&areaId=546&ds=r&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=6718' },
+      { hotel: 'Alcudia Garden Aparthotel', region: 'Port d\'Alcúdia · Mallorca', stars: 5, rating: '8,4', ratingWord: 'Sehr gut', reviews: '1.089', price: 3444, lat: 39.836, lng: 3.124, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&areaId=546&ds=r&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=7953' },
+      { hotel: 'Zafiro Cala Mesquida', region: 'Cala Mesquida · Mallorca', stars: 5, rating: '8,4', ratingWord: 'Sehr gut', reviews: '568', price: 3524, lat: 39.722, lng: 3.43, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&areaId=546&ds=r&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=1350' },
+      { hotel: 'Iberostar Waves Ciudad Blanca', region: 'Port d\'Alcúdia · Mallorca', stars: 5, rating: '8,6', ratingWord: 'Fabelhaft', reviews: '379', price: 3688, lat: 39.84, lng: 3.118, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&areaId=546&ds=r&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=1458' },
+      { hotel: 'Iberostar Waves Alcudia Park', region: 'Playa de Muro · Mallorca', stars: 5, rating: '8,7', ratingWord: 'Fabelhaft', reviews: '496', price: 3840, lat: 39.788, lng: 3.13, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&areaId=546&ds=r&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=1441' },
     ],
   },
   {
@@ -95,14 +146,31 @@ const destinations = [
     character: 'Strand plus Kultur & Städte',
     airport: 'BER → Málaga (AGP)', flightTime: 3.0,
     airTemp: 23, waterTemp: 21, sunHours: 7, rainDays: 5,
-    priceAI: 3100, priceSV: 2200,
+    priceAI: 3670, priceSV: 2200,
     tagline: 'Mehr als nur Strand: An der Costa del Sol lassen sich milde Badetage mit Ausflügen in lebendige Städte verbinden. Ein gutes Ziel, wenn die Familie neben dem Pool auch etwas erleben möchte.',
     weatherNote: 'Mild und sonnig, das Mittelmeer noch lauwarm. Vereinzelt Schauer, insgesamt freundlich.',
-    priceNote: 'Hotels & Apartments in jeder Kategorie. AI etwas seltener als in der Türkei, Selbstverpfleger sehr verbreitet.',
+    priceNote: 'Real gefundene AI-Angebote (24.–31.10.) ab ~3.670 € bis ~4.960 € — teurer als die Türkei. AI etwas seltener, Selbstverpfleger sehr verbreitet. Siehe Liste unten.',
     highlights: [
       'Breite Sandstrände & Strandpromenaden (Torremolinos, Fuengirola)',
       'Familien-Ausflüge: Tivoli World, Bioparc Fuengirola',
       'Städtetrips: Málaga, Granada (Alhambra), Sevilla',
+    ],
+    offersMeta: {
+      source: 'CHECK24', date: '24.–31.10.2026',
+      url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&areaId=568&ds=r&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight',
+      note: 'Live-Momentaufnahme (Stand Juni 2026), 8 Tage / 7 Nächte, Flug + Unterkunft ab Berlin (BER), 2 Erw. + Kinder 8 & 5 J. Preise je Gesamtfamilie inkl. Flug; Verfügbarkeit & Preise ändern sich täglich.',
+    },
+    offers: [
+      { hotel: 'Gran Hotel Costa del Sol', region: 'La Cala de Mijas · Costa del Sol', stars: 5, rating: '7,5', ratingWord: 'Gut', reviews: '190', price: 3668, lat: 36.508, lng: -4.683, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&areaId=568&ds=r&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=14638' },
+      { hotel: 'Hotel Puente Real', region: 'Torremolinos · Costa del Sol', stars: 5, rating: '7,3', ratingWord: 'Gut', reviews: '69', price: 3756, lat: 36.62, lng: -4.498, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&areaId=568&ds=r&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=3610' },
+      { hotel: 'Playacálida Hotel', region: 'Almuñécar · Costa Tropical', stars: 5, rating: '8,0', ratingWord: 'Sehr gut', reviews: '144', price: 4031, lat: 36.73, lng: -3.685, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&areaId=568&ds=r&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=14639' },
+      { hotel: 'Benalmádena Palace', region: 'Benalmádena · Costa del Sol', stars: 5, rating: '7,8', ratingWord: 'Gut', reviews: '57', price: 4156, lat: 36.598, lng: -4.516, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&areaId=568&ds=r&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=16981' },
+      { hotel: 'Impressive Playa Granada Golf', region: 'Playa Granada · Costa Tropical', stars: 5, rating: '8,0', ratingWord: 'Sehr gut', reviews: '129', price: 4184, lat: 36.708, lng: -3.535, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&areaId=568&ds=r&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=18616' },
+      { hotel: 'Ibersol Almuñecar Beach & Spa', region: 'Almuñécar · Costa Tropical', stars: 5, rating: '8,0', ratingWord: 'Sehr gut', reviews: '114', price: 4319, lat: 36.736, lng: -3.692, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&areaId=568&ds=r&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=8778' },
+      { hotel: 'Ona Marinas de Nerja', region: 'Nerja · Costa del Sol', stars: 5, rating: '8,0', ratingWord: 'Sehr gut', reviews: '142', price: 4340, lat: 36.745, lng: -3.875, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&areaId=568&ds=r&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=2091' },
+      { hotel: 'Occidental Torremolinos Playa', region: 'Torremolinos · Costa del Sol', stars: 5, rating: '8,2', ratingWord: 'Sehr gut', reviews: '114', price: 4592, lat: 36.616, lng: -4.51, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&areaId=568&ds=r&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=605' },
+      { hotel: 'Benalma Hotel Costa del Sol', region: 'Benalmádena · Costa del Sol', stars: 5, rating: '8,2', ratingWord: 'Sehr gut', reviews: '50', price: 4796, lat: 36.6, lng: -4.52, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&areaId=568&ds=r&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=3803' },
+      { hotel: 'Hotel Riu Costa del Sol', region: 'Torremolinos · Costa del Sol', stars: 5, rating: '8,6', ratingWord: 'Fabelhaft', reviews: '197', price: 4964, lat: 36.61, lng: -4.52, url: 'https://urlaub.check24.de/suche/hotel?airport=BER&cateringList=allinclusive%2CallinclusivePlus&areaId=568&ds=r&departureDate=2026-10-24&returnDate=2026-10-31&roomAllocation=A-A-8-5&transportType=flight&hotelId=607' },
     ],
   },
   {
@@ -493,7 +561,7 @@ const CHART = destinations.map((d) => ({
       <div class="barchart" id="barchart"></div>
 
       <div class="callouts">
-        <div class="callout"><b>Günstigste Familie</b><span>Djerba &gt; Albanien &gt; Ägypten</span></div>
+        <div class="callout"><b>Günstigste Familie</b><span>Djerba &gt; Albanien &gt; Mallorca</span></div>
         <div class="callout"><b>Wärmstes Wetter</b><span>Ägypten (29°/26°), dann Zypern</span></div>
         <div class="callout"><b>Kürzester Flug</b><span>Kroatien (1,75 h) &amp; Mallorca (2,5 h)</span></div>
         <div class="callout"><b>Wärmstes Meer</b><span>Ägypten (26°) &amp; Zypern (25°)</span></div>
@@ -676,7 +744,7 @@ const CHART = destinations.map((d) => ({
       map.fitBounds(bounds, { padding: [30, 30] });
       window.__maps[id] = { map: map, bounds: bounds };
     }
-    initHotelMap('tuerkei');
+    Array.prototype.forEach.call(document.querySelectorAll('[id^="hotels-"]'), function (el) { initHotelMap(el.id.replace('hotels-', '')); });
   </script>
 </body>
 </html>
