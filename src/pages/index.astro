@@ -156,13 +156,13 @@ const CHART = destinations.map((d) => ({
   <title>Familien-Urlaub Herbstferien — Zielvergleich</title>
   <style is:inline>
     :root {
-      --ink: #16212e; --muted: #5d6e7e; --line: #e4eaf0; --bg: #f5f8fb;
-      --card: #ffffff; --nav: #122230; --nav-ink: #cfe0ec; --accent: #e8590c;
-      --accent2: #1f7a8c;
-      --temp-air: #e8590c; --temp-water: #1f7a8c;
-      --hot: #e0431f; --warm: #e8990c; --mild: #1f9d8f;
-      --ai: #e8590c; --sv: #1f7a8c;
-      --shadow: 0 1px 3px rgba(20,40,60,.07), 0 8px 28px rgba(20,40,60,.06);
+      --ink: #0f2e44; --muted: #5a7387; --line: #dbe9f3; --bg: #eef6fc;
+      --card: #ffffff; --nav: #0c4f73; --nav-ink: #cfe6f3; --accent: #0e8fc0;
+      --accent2: #1f7a9c;
+      --temp-air: #f4a23a; --temp-water: #1f8bb5;
+      --hot: #ef7d57; --warm: #f4a23a; --mild: #2bb3c4;
+      --ai: #0e8fc0; --sv: #14b0a6;
+      --shadow: 0 1px 3px rgba(15,46,68,.07), 0 8px 28px rgba(15,46,68,.07);
     }
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
@@ -172,7 +172,7 @@ const CHART = destinations.map((d) => ({
       line-height: 1.5;
     }
     /* ---- Navbar ---- */
-    header.nav { position: sticky; top: 0; z-index: 50; background: var(--nav); box-shadow: 0 2px 14px rgba(0,0,0,.18); }
+    header.nav { position: sticky; top: 0; z-index: 50; background: linear-gradient(120deg, #0a4d6e 0%, #137fa8 100%); box-shadow: 0 2px 14px rgba(10,60,90,.22); }
     .nav-inner { max-width: 1080px; margin: 0 auto; padding: 0 16px; }
     .brand { display: flex; align-items: center; gap: 10px; padding: 12px 0 8px; }
     .brand .mark { font-size: 20px; }
@@ -198,11 +198,11 @@ const CHART = destinations.map((d) => ({
     .burger { font-size: 15px; line-height: 1; margin-right: 2px; }
     #det-label { opacity: .9; font-weight: 600; }
     .navbtn {
-      flex: 0 0 auto; background: transparent; color: var(--nav-ink);
-      border: 1px solid #2a3f52; border-radius: 999px; padding: 6px 13px;
+      flex: 0 0 auto; background: rgba(255,255,255,.08); color: var(--nav-ink);
+      border: 1px solid rgba(255,255,255,.28); border-radius: 999px; padding: 6px 13px;
       font-size: 13px; cursor: pointer; white-space: nowrap; transition: all .15s;
     }
-    .navbtn:hover { background: #1c3043; color: #fff; }
+    .navbtn:hover { background: rgba(255,255,255,.2); color: #fff; }
     .navbtn.active { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 600; }
     /* ---- Layout ---- */
     main { max-width: 1080px; margin: 0 auto; padding: 26px 16px 60px; }
@@ -213,7 +213,7 @@ const CHART = destinations.map((d) => ({
     .hero {
       border-radius: 16px; padding: 26px 26px 24px; color: #fff; position: relative;
       overflow: hidden; box-shadow: var(--shadow);
-      background: linear-gradient(135deg, #163a4d 0%, #1f7a8c 55%, #2aa1a8 100%);
+      background: linear-gradient(135deg, #0a4d6e 0%, #1f8bb5 55%, #5ec8e0 100%);
     }
     .hero::after {
       content: ""; position: absolute; right: -40px; bottom: -60px; width: 260px; height: 260px;
@@ -281,7 +281,7 @@ const CHART = destinations.map((d) => ({
     .bar-row { display: grid; grid-template-columns: 150px 1fr 92px; align-items: center; gap: 10px; margin-bottom: 8px; }
     .bar-row .lbl { font-size: 13px; text-align: right; color: #34495a; }
     .bar-track { background: #e8eef4; border-radius: 6px; height: 18px; overflow: hidden; }
-    .bar-fill { height: 100%; border-radius: 6px; background: linear-gradient(90deg, #1f7a8c, #e8590c); }
+    .bar-fill { height: 100%; border-radius: 6px; background: linear-gradient(90deg, #0e8fc0, #5ec8e0); }
     .bar-row .val { font-size: 12.5px; font-variant-numeric: tabular-nums; color: var(--muted); }
     .callouts { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 14px; margin-top: 24px; }
     .callout { background: var(--card); border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 10px; padding: 14px 16px; box-shadow: var(--shadow); }
@@ -323,7 +323,7 @@ const CHART = destinations.map((d) => ({
   <main>
     <!-- Übersicht -->
     <section class="loc-section active" id="sec-overview">
-      <div class="hero" style="background: linear-gradient(135deg,#1a2f3d 0%,#e8590c 120%);">
+      <div class="hero" style="background: linear-gradient(135deg,#0a4d6e 0%,#2bb3c4 120%);">
         <span class="rank-badge">Berliner Herbstferien · 19.–31. Oktober 2026</span>
         <h2>Wohin in den Herbstferien?</h2>
         <div class="region">7 Nächte · 2 Erwachsene + Kind (8 J.) + Kind (5 J.) · Flug ab Berlin (BER)</div>
