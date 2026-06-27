@@ -418,7 +418,7 @@ function weatherSVG(d) {
     const y = top + i * (rowH + gap);
     const w = Math.max(6, (r.val / scaleMax) * innerW);
     svg += '<text class="rlbl" x="' + (padL - 12) + '" y="' + (y + rowH / 2 + 4) + '" text-anchor="end">' + r.lbl + '</text>';
-    svg += '<rect x="' + padL + '" y="' + y + '" width="' + innerW + '" height="' + rowH + '" rx="7" fill="#eef3f8"/>';
+    svg += '<rect x="' + padL + '" y="' + y + '" width="' + innerW + '" height="' + rowH + '" rx="7" fill="#fbeedd"/>';
     svg += '<rect x="' + padL + '" y="' + y + '" width="' + w + '" height="' + rowH + '" rx="7" fill="' + r.color + '"/>';
     svg += '<text class="val" x="' + (padL + w + 8) + '" y="' + (y + rowH / 2 + 4) + '">' + r.val + ' °C</text>';
   });
@@ -445,13 +445,13 @@ const CHART = destinations.map((d) => ({
   <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
   <style is:inline>
     :root {
-      --ink: #0f2e44; --muted: #5a7387; --line: #dbe9f3; --bg: #eef6fc;
-      --card: #ffffff; --nav: #0c4f73; --nav-ink: #cfe6f3; --accent: #0e8fc0;
-      --accent2: #1f7a9c;
-      --temp-air: #f4a23a; --temp-water: #1f8bb5;
-      --hot: #ef7d57; --warm: #f4a23a; --mild: #2bb3c4;
-      --ai: #0e8fc0; --sv: #14b0a6;
-      --shadow: 0 1px 3px rgba(15,46,68,.07), 0 8px 28px rgba(15,46,68,.07);
+      --ink: #5a4226; --muted: #a0876a; --line: #f4e3cd; --bg: #fff7ec;
+      --card: #fffdf8; --nav: #fb8b34; --nav-ink: #fff4e0; --accent: #f5912e;
+      --accent2: #ec7a3a;
+      --temp-air: #f5a623; --temp-water: #3fb6c4;
+      --hot: #ef6f4c; --warm: #f5a623; --mild: #34c0b0;
+      --ai: #f5912e; --sv: #2fb9b0;
+      --shadow: 0 1px 3px rgba(180,120,40,.10), 0 8px 28px rgba(200,140,50,.12);
     }
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
@@ -461,12 +461,12 @@ const CHART = destinations.map((d) => ({
       line-height: 1.5;
     }
     /* ---- Navbar ---- */
-    header.nav { position: sticky; top: 0; z-index: 1200; background: linear-gradient(120deg, #0a4d6e 0%, #137fa8 100%); box-shadow: 0 2px 14px rgba(10,60,90,.22); }
+    header.nav { position: sticky; top: 0; z-index: 1200; background: linear-gradient(120deg, #fb8b34 0%, #ffb24a 100%); box-shadow: 0 2px 14px rgba(220,140,40,.28); }
     .nav-inner { max-width: 1080px; margin: 0 auto; padding: 0 16px; }
     .brand { display: flex; align-items: center; gap: 10px; padding: 12px 0 8px; }
     .brand .mark { font-size: 20px; }
     .brand h1 { font-size: 16px; margin: 0; color: #fff; font-weight: 700; letter-spacing: .2px; }
-    .brand span { color: #7fa3bd; font-size: 12.5px; margin-left: 2px; }
+    .brand span { color: #fff2db; font-size: 12.5px; margin-left: 2px; }
     .tabs { display: flex; gap: 6px; overflow: visible; padding-bottom: 10px; align-items: center; }
     .details-wrap { position: relative; }
     .menu {
@@ -480,7 +480,7 @@ const CHART = destinations.map((d) => ({
       background: transparent; border: none; border-radius: 8px; padding: 9px 12px;
       font-size: 14px; color: var(--ink); cursor: pointer;
     }
-    .menu-item:hover { background: #f1f6fb; }
+    .menu-item:hover { background: #fdf3e6; }
     .menu-item.active { background: var(--accent); color: #fff; }
     .menu-item .rk { opacity: .55; font-variant-numeric: tabular-nums; min-width: 18px; }
     .menu-item.active .rk { opacity: .85; }
@@ -492,7 +492,7 @@ const CHART = destinations.map((d) => ({
       font-size: 13px; cursor: pointer; white-space: nowrap; transition: all .15s;
     }
     .navbtn:hover { background: rgba(255,255,255,.2); color: #fff; }
-    .navbtn.active { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 600; }
+    .navbtn.active { background: #fff; border-color: #fff; color: var(--accent); font-weight: 700; }
     /* ---- Layout ---- */
     main { max-width: 1080px; margin: 0 auto; padding: 26px 16px 60px; }
     .loc-section { display: none; animation: fade .25s ease; }
@@ -502,12 +502,13 @@ const CHART = destinations.map((d) => ({
     .hero {
       border-radius: 16px; padding: 26px 26px 24px; color: #fff; position: relative;
       overflow: hidden; box-shadow: var(--shadow);
-      background: linear-gradient(135deg, #0a4d6e 0%, #1f8bb5 55%, #5ec8e0 100%);
+      background: linear-gradient(135deg, #fb8c3a 0%, #ffb44e 55%, #ffd877 100%);
     }
     .hero::after {
       content: ""; position: absolute; right: -40px; bottom: -60px; width: 260px; height: 260px;
       background: radial-gradient(circle, rgba(255,255,255,.14), transparent 70%);
     }
+    .hero::before { content: ""; position: absolute; right: 16px; bottom: 0; width: 132px; height: 132px; z-index: 0; opacity: .26; pointer-events: none; background: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20120%20120%27%3E%3Cpath%20d%3D%27M60%20116%20C57%2088%2055%2064%2064%2042%27%20fill%3D%27none%27%20stroke%3D%27white%27%20stroke-width%3D%275%27%20stroke-linecap%3D%27round%27%2F%3E%3Cg%20fill%3D%27white%27%3E%3Cpath%20d%3D%27M64%2042%20C42%2030%2024%2030%2010%2040%20C30%2034%2048%2040%2062%2048%20Z%27%2F%3E%3Cpath%20d%3D%27M64%2042%20C86%2030%20104%2030%20118%2040%20C98%2034%2080%2040%2066%2048%20Z%27%2F%3E%3Cpath%20d%3D%27M64%2042%20C48%2022%2038%2010%2032%200%20C46%2016%2058%2030%2064%2044%20Z%27%2F%3E%3Cpath%20d%3D%27M64%2042%20C80%2022%2092%2010%20100%202%20C84%2018%2072%2030%2066%2044%20Z%27%2F%3E%3Cpath%20d%3D%27M64%2042%20C52%2028%2038%2022%2026%2022%20C44%2026%2056%2034%2064%2046%20Z%27%2F%3E%3Cpath%20d%3D%27M64%2042%20C76%2028%2090%2022%20102%2024%20C84%2028%2070%2034%2064%2046%20Z%27%2F%3E%3C%2Fg%3E%3Ccircle%20cx%3D%2764%27%20cy%3D%2742%27%20r%3D%275%27%20fill%3D%27white%27%2F%3E%3C%2Fsvg%3E") no-repeat center / contain; }
     .hero .rank-badge {
       display: inline-block; background: rgba(255,255,255,.16); border: 1px solid rgba(255,255,255,.3);
       border-radius: 999px; padding: 3px 12px; font-size: 12.5px; font-weight: 600; margin-bottom: 12px;
@@ -532,13 +533,13 @@ const CHART = destinations.map((d) => ({
     .pcard .punit { font-size: 12.5px; color: var(--muted); }
     .pcard .pdesc { font-size: 13px; color: #34495a; margin-top: 10px; line-height: 1.45; }
     .pcard .pp { font-size: 12px; color: var(--muted); margin-top: 8px; font-variant-numeric: tabular-nums; }
-    .pricehint { font-size: 13px; color: #34495a; background: #f1f6fb; border-radius: 10px; padding: 12px 14px; margin-top: 14px; }
+    .pricehint { font-size: 13px; color: #34495a; background: #fdf3e6; border-radius: 10px; padding: 12px 14px; margin-top: 14px; }
     /* ---- Wetter ---- */
     .weather-wrap { display: grid; grid-template-columns: 1.2fr 1fr; gap: 18px; align-items: stretch; }
     .wcard { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 16px; box-shadow: var(--shadow); }
     svg.weather { width: 100%; height: auto; display: block; }
-    svg.weather .grid { stroke: #eef2f6; stroke-width: 1; }
-    svg.weather .ax { fill: #93a3b2; font-size: 10.5px; font-family: inherit; }
+    svg.weather .grid { stroke: #f3e6d2; stroke-width: 1; }
+    svg.weather .ax { fill: #bfa888; font-size: 10.5px; font-family: inherit; }
     svg.weather .rlbl { fill: var(--muted); font-size: 12.5px; font-weight: 600; font-family: inherit; }
     svg.weather .val { fill: var(--ink); font-size: 12.5px; font-weight: 700; font-family: inherit; }
     .wstats { display: flex; flex-direction: column; gap: 10px; justify-content: center; }
@@ -546,7 +547,7 @@ const CHART = destinations.map((d) => ({
     .wstat .ic { font-size: 22px; width: 30px; text-align: center; }
     .wstat b { font-size: 18px; font-variant-numeric: tabular-nums; }
     .wstat span { color: var(--muted); font-size: 12.5px; }
-    .wnote { font-size: 13px; color: #34495a; background: #f1f6fb; border-radius: 10px; padding: 12px 14px; margin-top: 14px; }
+    .wnote { font-size: 13px; color: #34495a; background: #fdf3e6; border-radius: 10px; padding: 12px 14px; margin-top: 14px; }
     /* ---- Highlights ---- */
     .hl { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
     .hl li { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 11px 14px; font-size: 14px; color: #34495a; display: flex; gap: 10px; box-shadow: var(--shadow); }
@@ -554,17 +555,17 @@ const CHART = destinations.map((d) => ({
     /* ---- Konkrete Angebote ---- */
     table.offers { width: 100%; border-collapse: collapse; font-size: 13.5px; background: var(--card); border-radius: 12px; overflow: hidden; box-shadow: var(--shadow); }
     table.offers th, table.offers td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--line); vertical-align: middle; }
-    table.offers th { background: #eef3f8; font-size: 12px; text-transform: uppercase; letter-spacing: .5px; color: var(--muted); font-weight: 700; }
+    table.offers th { background: #fbeedd; font-size: 12px; text-transform: uppercase; letter-spacing: .5px; color: var(--muted); font-weight: 700; }
     table.offers tr:last-child td { border-bottom: none; }
-    table.offers tbody tr:hover { background: #f3f8fc; }
+    table.offers tbody tr:hover { background: #fdf4e8; }
     table.offers .stars { color: #f4a23a; font-size: 11px; letter-spacing: -1px; white-space: nowrap; }
     table.offers .rbadge { display: inline-block; background: var(--accent); color: #fff; font-weight: 700; font-size: 12px; border-radius: 6px; padding: 1px 6px; font-variant-numeric: tabular-nums; }
     table.offers .rev { color: var(--muted); font-size: 12px; }
     table.offers .oprice { font-weight: 800; color: var(--accent); font-variant-numeric: tabular-nums; white-space: nowrap; }
-    .offernote { font-size: 12px; color: var(--muted); background: #f1f6fb; border-radius: 10px; padding: 12px 14px; margin-top: 12px; line-height: 1.5; }
+    .offernote { font-size: 12px; color: var(--muted); background: #fdf3e6; border-radius: 10px; padding: 12px 14px; margin-top: 12px; line-height: 1.5; }
     .offernote a { color: var(--accent2); font-weight: 600; text-decoration: none; }
     .offernote a:hover { text-decoration: underline; }
-    .hotelmap { width: 100%; height: 340px; position: relative; z-index: 0; border-radius: 14px; border: 1px solid var(--line); box-shadow: var(--shadow); margin-bottom: 8px; background: #e8eef4; }
+    .hotelmap { width: 100%; height: 340px; position: relative; z-index: 0; border-radius: 14px; border: 1px solid var(--line); box-shadow: var(--shadow); margin-bottom: 8px; background: #f6e6cf; }
     .maphint { font-size: 11.5px; color: var(--muted); margin: 0 2px 14px; }
     table.offers .hotellink { color: var(--ink); text-decoration: none; }
     table.offers .hotellink:hover { color: var(--accent); text-decoration: underline; }
@@ -574,10 +575,10 @@ const CHART = destinations.map((d) => ({
     .intro { font-size: 15.5px; color: #34495a; max-width: 740px; }
     table.rank { width: 100%; border-collapse: collapse; margin-top: 16px; font-size: 13.5px; background: var(--card); border-radius: 12px; overflow: hidden; box-shadow: var(--shadow); }
     table.rank th, table.rank td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--line); }
-    table.rank th { background: #eef3f8; font-size: 12px; text-transform: uppercase; letter-spacing: .5px; color: var(--muted); }
+    table.rank th { background: #fbeedd; font-size: 12px; text-transform: uppercase; letter-spacing: .5px; color: var(--muted); }
     table.rank tr:last-child td { border-bottom: none; }
     table.rank tr { cursor: pointer; transition: background .12s; }
-    table.rank tbody tr:hover { background: #f3f8fc; }
+    table.rank tbody tr:hover { background: #fdf4e8; }
     table.rank td.r { font-weight: 700; color: var(--accent); }
     table.rank td.price { font-variant-numeric: tabular-nums; font-weight: 600; }
     .barchart { margin-top: 26px; }
@@ -588,8 +589,8 @@ const CHART = destinations.map((d) => ({
     .metric-hint { font-size: 12.5px; color: var(--muted); margin: 0 2px 14px; min-height: 16px; }
     .bar-row { display: grid; grid-template-columns: 150px 1fr 92px; align-items: center; gap: 10px; margin-bottom: 8px; }
     .bar-row .lbl { font-size: 13px; text-align: right; color: #34495a; }
-    .bar-track { background: #e8eef4; border-radius: 6px; height: 18px; overflow: hidden; }
-    .bar-fill { height: 100%; border-radius: 6px; background: linear-gradient(90deg, #0e8fc0, #5ec8e0); }
+    .bar-track { background: #f6e6cf; border-radius: 6px; height: 18px; overflow: hidden; }
+    .bar-fill { height: 100%; border-radius: 6px; background: linear-gradient(90deg, #f5912e, #ffd36b); }
     .bar-row .val { font-size: 12.5px; font-variant-numeric: tabular-nums; color: var(--muted); }
     .callouts { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 14px; margin-top: 24px; }
     .callout { background: var(--card); border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 10px; padding: 14px 16px; box-shadow: var(--shadow); }
@@ -609,7 +610,7 @@ const CHART = destinations.map((d) => ({
   <header class="nav">
     <div class="nav-inner">
       <div class="brand">
-        <span class="mark">🏖️</span>
+        <span class="mark">🌴</span>
         <h1>Herbstferien-Urlaub <span>· Familienziele im Vergleich</span></h1>
       </div>
       <nav class="tabs" id="tabs">
@@ -631,7 +632,7 @@ const CHART = destinations.map((d) => ({
   <main>
     <!-- Übersicht -->
     <section class="loc-section active" id="sec-overview">
-      <div class="hero" style="background: linear-gradient(135deg,#0a4d6e 0%,#2bb3c4 120%);">
+      <div class="hero" style="background: linear-gradient(135deg,#fb8c3a 0%,#ffd36b 120%);">
         <span class="rank-badge">Berliner Herbstferien · 19.–31. Oktober 2026</span>
         <h2>Wohin in den Herbstferien?</h2>
         <div class="region">7 Nächte · 2 Erwachsene + Kind (8 J.) + Kind (5 J.) · Flug ab Berlin (BER)</div>
